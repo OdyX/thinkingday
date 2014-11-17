@@ -1,3 +1,8 @@
+Thinkingday.ch
+==============
+
+This is the source code for thinkingday.ch
+
 Django project template
 =======================
 
