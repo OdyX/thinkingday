@@ -37,7 +37,6 @@ UPSTREAM_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'south',
 )
 
 # Project apps tested by jenkins (everything in apps/)
