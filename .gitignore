@@ -1,0 +1,4 @@
+*.pyc
+envdir/*
+!envdir/local/.gitkeep
+!envdir/tests/.gitkeep
