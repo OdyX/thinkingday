@@ -14,6 +14,7 @@ import dj_database_url
 
 from . import get_env_variable
 from .. import get_project_root_path
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
 
 PROJECT_ROOT = get_project_root_path()
