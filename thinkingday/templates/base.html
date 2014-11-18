@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    {% load i18n %}
+    {% load compress %}
+    {% load staticfiles %}
+    <!--[if IE]><![endif]-->
+    <!--[if lt IE 7 ]> <html lang="{{ app.request.locale }}" class="ie6">    <![endif]-->
+    <!--[if IE 7 ]>    <html lang="{{ app.request.locale }}" class="ie7">    <![endif]-->
+    <!--[if IE 8 ]>    <html lang="{{ app.request.locale }}" class="ie8">    <![endif]-->
+    <!--[if IE 9 ]>    <html lang="{{ app.request.locale }}" class="ie9">    <![endif]-->
+    <!--[if (gt IE 9)|!(IE)]><!--><html lang="{{ app.request.locale }}"><!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        {% block stylesheets %}
+            {% compress css %}
+            {% endcompress %}
+        {% endblock %}
+
+        <title>{% trans "ThinkingDay.ch" %}</title>
+    </head>
+
+    <body class="{% spaceless %}{% block bodyclass %}{% endblock %}{% endspaceless %}">
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    {% block footer_scripts %}
+        {% include "javascript_libraries.html" %}
+    {% endblock %}
+
+    </body>
+</html>

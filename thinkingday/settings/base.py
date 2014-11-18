@@ -30,6 +30,9 @@ TEMPLATE_CONTEXT_PROCESSORS += (
     'allauth.account.context_processors.account',
     'allauth.socialaccount.context_processors.socialaccount',
 )
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'thinkingday/templates'),
+)
 
 ALLOWED_HOSTS = tuple(get_env_variable('ALLOWED_HOSTS', '').splitlines())
 
