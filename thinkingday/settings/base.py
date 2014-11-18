@@ -44,6 +44,7 @@ UPSTREAM_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -131,3 +132,5 @@ COMPRESS_CSS_FILTERS = [
 COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter'
     ]
+
+SITE_ID = 1
