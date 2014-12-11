@@ -51,6 +51,7 @@ UPSTREAM_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'hvad',
 )
 
 # Project apps tested by jenkins (everything in apps/)
@@ -63,6 +64,7 @@ INSTALLED_APPS = UPSTREAM_APPS + PROJECT_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -85,7 +87,12 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-#LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('fr', 'French'),
+    ('de', 'German'),
+    ('it', 'Italian'),
+    ('en', 'English'),
+    )
 
 TIME_ZONE = 'UTC'
 
