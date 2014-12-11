@@ -116,6 +116,10 @@ STATICFILES_FINDERS = (
     'compressor.finders.CompressorFinder',
 )
 
+STATICFILES_DIRS = (
+    'thinkingday/statics',
+)
+
 COMPRESS_PARSER = 'compressor.parser.Html5LibParser'
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE = True
