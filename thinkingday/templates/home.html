@@ -3,4 +3,9 @@
 
 {% block content %}
 <h1>{% trans "Welcome on the ThinkingDay.ch page!" %}</h1>
+
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form }}
+</form>
 {% endblock %}

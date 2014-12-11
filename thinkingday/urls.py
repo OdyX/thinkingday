@@ -11,6 +11,7 @@ td_patterns = [
 urlpatterns = patterns(
     '',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('allauth.urls')),
 )
 
 urlpatterns += i18n_patterns('',
