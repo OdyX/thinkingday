@@ -1,6 +1,7 @@
-dj-database-url==0.3.0
-Django==1.7.1
-django-compressor==1.4
-django-allauth==0.18.0
-html5lib==0.999
-lesscpy==0.10.1
+Django>=1.7
+dj-database-url>=0.3
+django-compressor>=1.4
+django-allauth>=0.18
+html5lib>=0.999
+lesscpy>=0.10
+django-hvad>=0.5
