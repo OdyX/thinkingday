@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 
 import dj_database_url
+from django.utils.translation import ugettext_lazy as _
 
 from . import get_env_variable
 from .. import get_project_root_path
@@ -88,10 +89,10 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGES = (
-    ('fr', 'French'),
-    ('de', 'German'),
-    ('it', 'Italian'),
-    ('en', 'English'),
+    ('fr', _('French')),
+    ('de', _('German')),
+    ('it', _('Italian')),
+    ('en', _('English')),
     )
 
 TIME_ZONE = 'UTC'
