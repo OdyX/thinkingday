@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render  # , redirect
+from apps.user.forms import EmailOnlyForm
 from apps.event.models import Event
 
 
@@ -12,6 +13,9 @@ def home(request):
     except:
         event = None
 
+    form = EmailOnlyForm()
+
     return render(request, 'home.html', {
-                  'event': event
-                  })
+            'event': event,
+            'form': form,
+            })
