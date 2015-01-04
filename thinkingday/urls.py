@@ -11,6 +11,7 @@ td_patterns = [
 urlpatterns = patterns(
     '',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^lang/', include('django.conf.urls.i18n')),
     url(r'^accounts/', include('allauth.urls')),
 )
 

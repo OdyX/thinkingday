@@ -28,6 +28,7 @@ DEBUG = bool(get_env_variable('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
+    'django.core.context_processors.i18n',
     'allauth.account.context_processors.account',
     'allauth.socialaccount.context_processors.socialaccount',
 )
@@ -57,11 +58,13 @@ UPSTREAM_APPS = (
 
 # Project apps tested by jenkins (everything in apps/)
 APPS_DIR = os.path.join(PROJECT_ROOT, 'apps')
-PROJECT_APPS = tuple(['apps.' + aname
+PROJECT_APPS = ['apps.' + aname
                      for aname in os.listdir(APPS_DIR)
-                     if os.path.isdir(os.path.join(APPS_DIR, aname))])
+                     if os.path.isdir(os.path.join(APPS_DIR, aname))]
 
-INSTALLED_APPS = UPSTREAM_APPS + PROJECT_APPS
+PROJECT_APPS += ['thinkingday']
+
+INSTALLED_APPS = UPSTREAM_APPS + tuple(PROJECT_APPS)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,6 +131,10 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = (
     'thinkingday/statics',
 )
+
+# Email sender settings
+SERVER_EMAIL = get_env_variable('SERVER_EMAIL', 'noreply@thinkingday.ch')
+DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL', 'noreply@thinkingday.ch')
 
 COMPRESS_PARSER = 'compressor.parser.Html5LibParser'
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'

@@ -2,6 +2,7 @@
     {% load i18n %}
     {% load compress %}
     {% load staticfiles %}
+    {% load setlang %}
     <!--[if IE]><![endif]-->
     <!--[if lt IE 7 ]> <html lang="{{ app.request.locale }}" class="ie6">    <![endif]-->
     <!--[if IE 7 ]>    <html lang="{{ app.request.locale }}" class="ie7">    <![endif]-->
@@ -34,7 +35,28 @@
             <div>
                 <a id="homelink" href="{% url 'home' %}" title="{% trans "Homepage" %}">{% trans "Swiss scouts" %}</a>
             </div>
+            <div id="select_lang">
+                <ul>
+                    <li><a href="" title="Deutsch">D</a></li>
+                    <li><a href="" title="Français">F</a></li>
+                    <li><a href="" title="Italiano">I</a></li>
+                </ul>
+            </div>
+            <div>
+                <a id="scouts-infos" href="{% trans "http://www.scout.ch" %}"><img src="{{ STATIC_URL }}img/{% trans "ecke_de.png" %}"></a>
+            </div>
         </div>
+        <ul>
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            <li><form action="{% url 'set_language' %}" method="post">
+                <input name="next" type="hidden" value="{{ request|setlang:language.code }}" />
+                {% csrf_token %}
+                <input name="language" type="hidden" value="{{ language.code }}" />
+                <input type="submit" class="lang_toggle_submit" value="{{ language.name_local }}" />
+            </form></li>
+        {% endfor %}
+        </ul>
     </header>
 
     <div id="content">
