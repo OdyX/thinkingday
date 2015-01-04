@@ -5,7 +5,7 @@
 
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
-    font-family @fontsans;
+    font-family: @fontsans;
 }
 
 h1, h2, h3, h4, h5 {
@@ -114,5 +114,26 @@ h1, h2, h3, h4, h5 {
 
     a {
         color: #ddd;
+    }
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 60%;
+    padding: 0;
+    text-align: center;
+    color: white;
+
+    > div {
+        margin-bottom: 20px;
+    }
+
+    div#contact {
+        font-weight: bold;
+    }
+
+    div#partenaires img {
+        height: 80px;
     }
 }
