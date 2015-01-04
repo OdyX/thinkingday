@@ -4,7 +4,7 @@
 {% block leftbox %}
     <h3 class="information-head">{{ event.name }}</h3>
     <p>
-        {{ event.description }}
+        {{ event.description|safe }}
     </p>
 {% endblock %}
 
