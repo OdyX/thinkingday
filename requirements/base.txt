@@ -1,7 +1,7 @@
 Django>=1.7
 dj-database-url>=0.3
 django-compressor>=1.4
--e git+https://github.com/OdyX/django-allauth.git@master#egg=django-allauth
+-e git+https://github.com/pennersr/django-allauth.git@master#egg=django-allauth
 html5lib>=0.999
 lesscpy>=0.10
 django-hvad>=0.5
