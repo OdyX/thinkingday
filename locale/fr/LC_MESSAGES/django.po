@@ -49,7 +49,7 @@ msgid "Scouts on Facebook"
 msgstr "Scouts sur Facebook"
 
 #: thinkingday/templates/base.html:61
-msgid "Our partenairs:"
+msgid "Our partners:"
 msgstr "Nos partenaires :"
 
 #: thinkingday/templates/header.html:5
