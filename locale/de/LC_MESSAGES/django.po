@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 15:12+0000\n"
+"POT-Creation-Date: 2015-01-04 15:19+0000\n"
 "PO-Revision-Date: 2014-12-11 19:57+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: de\n"
@@ -40,29 +40,33 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: thinkingday/templates/base.html:28
+#: thinkingday/templates/base.html:27
 msgid "ThinkingDay.ch"
 msgstr "ThinkingDay.ch"
 
-#: thinkingday/templates/base.html:36
+#: thinkingday/templates/base.html:57
+msgid "Scouts on Facebook"
+msgstr "Pfadi auf Facebook"
+
+#: thinkingday/templates/base.html:61
+msgid "Our partners:"
+msgstr "Unsere Partner:"
+
+#: thinkingday/templates/header.html:5
 msgid "Homepage"
 msgstr "Hauptseite"
 
-#: thinkingday/templates/base.html:36
+#: thinkingday/templates/header.html:5
 msgid "Swiss scouts"
 msgstr "Schweizerische Pfadis"
 
-#: thinkingday/templates/base.html:52
+#: thinkingday/templates/header.html:21
 msgid "http://www.scout.ch"
 msgstr "http://www.scout.ch/de"
 
-#: thinkingday/templates/base.html:52
+#: thinkingday/templates/header.html:21
 msgid "ecke_de.png"
 msgstr ""
-
-#: thinkingday/templates/base.html:78
-msgid "Scouts on Facebook"
-msgstr "Pfadi auf Facebook"
 
 #: thinkingday/templates/home.html:5
 msgid "Welcome on the ThinkingDay.ch page!"
