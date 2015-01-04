@@ -13,10 +13,12 @@
 
         {% block stylesheets %}
             {# Titles #}
-            <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css' />
             {# Body #}
-            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+            {# Pure CSS #}
             <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css" />
             {% compress css %}
             <link href="{% static "style/base.less" %}" type="text/less" rel="stylesheet" />
             {% endcompress %}
@@ -33,9 +35,43 @@
         {% include "header.html" %}
     </header>
 
-    <div id="content">
-        {% block content %}
-        {% endblock %}
+    {% block banner %}
+        <div class="banner">
+            <h1 class="banner-head">
+                {% trans "Welcome on the ThinkingDay.ch page!" %}
+            </h1>
+        </div>
+    {% endblock %}
+
+    <div class="l-content">
+        <div class="information pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    {% block leftbox %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    {% block rightbox %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="l-content">
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <div class="footer l-box">
+        {% include "footer.html" %}
     </div>
 
     {% block footer_scripts %}

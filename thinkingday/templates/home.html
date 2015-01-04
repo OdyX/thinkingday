@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 {% load i18n %}
 
-{% block content %}
-<h1>{% trans "Welcome on the ThinkingDay.ch page!" %}</h1>
+{% block leftbox %}
+    <h3 class="information-head">{{ event.name }}</h3>
+    <p>
+        {{ event.description }}
+    </p>
+{% endblock %}
 
-<div class="pure-g">
-<section id="event_description" class="pure-u-1-2">
-    {{ event.description }}
-</section>
-
-
-<section id="event_registration" class="pure-u-1-2">
+{% block rightbox %}
     {% if not user.is_authenticated %}
         <form method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
@@ -29,5 +27,4 @@
             {% endif %}
         </ul>
     {% endif %}
-</section>
 {% endblock %}
