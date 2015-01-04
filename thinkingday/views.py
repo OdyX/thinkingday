@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-# from django.shortcuts import render  # , redirect
-from django.http import HttpResponseRedirect
+from django.shortcuts import render  # , redirect
+#from django.http import Http404
 
 
 def home(request):
-    # Redirect to scout.ch temporarily
-    return HttpResponseRedirect('http://www.scouts.ch/')
-    # return render(request, 'home.html')
+    return render(request, 'home.html')
