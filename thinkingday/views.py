@@ -1,7 +1,25 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render  # , redirect
-#from django.http import Http404
+from apps.user.forms import EmailOnlyForm
+from apps.event.models import Event
 
 
 def home(request):
-    return render(request, 'home.html')
+    try:
+        event = Event.objects\
+            .untranslated()\
+            .use_fallbacks()\
+            .order_by('start')[0]
+    except:
+        event = None
+
+    form = EmailOnlyForm()
+
+    return render(request, 'home.html', {
+            'event': event,
+            'form': form,
+            })
+
+
+def thanks(request):
+    return render(request, 'registration_thanks.html')

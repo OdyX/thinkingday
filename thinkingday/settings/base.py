@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 
 import dj_database_url
+from django.utils.translation import ugettext_lazy as _
 
 from . import get_env_variable
 from .. import get_project_root_path
@@ -27,6 +28,7 @@ DEBUG = bool(get_env_variable('DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 TEMPLATE_CONTEXT_PROCESSORS += (
     'django.core.context_processors.request',
+    'django.core.context_processors.i18n',
     'allauth.account.context_processors.account',
     'allauth.socialaccount.context_processors.socialaccount',
 )
@@ -51,18 +53,22 @@ UPSTREAM_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'hvad',
 )
 
 # Project apps tested by jenkins (everything in apps/)
 APPS_DIR = os.path.join(PROJECT_ROOT, 'apps')
-PROJECT_APPS = tuple(['apps.' + aname
+PROJECT_APPS = ['apps.' + aname
                      for aname in os.listdir(APPS_DIR)
-                     if os.path.isdir(os.path.join(APPS_DIR, aname))])
+                     if os.path.isdir(os.path.join(APPS_DIR, aname))]
 
-INSTALLED_APPS = UPSTREAM_APPS + PROJECT_APPS
+PROJECT_APPS += ['thinkingday']
+
+INSTALLED_APPS = UPSTREAM_APPS + tuple(PROJECT_APPS)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -84,8 +90,14 @@ DATABASES = {
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
+LANGUAGE_CODE = 'fr'
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGES = (
+    ('de', _('German')),
+    ('fr', _('French')),
+    ('it', _('Italian')),
+    ('en', _('English')),
+    )
 
 TIME_ZONE = 'UTC'
 
@@ -105,7 +117,6 @@ LOCALE_PATHS = (
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
 STATIC_ROOT = get_env_variable('STATIC_ROOT',
                                os.path.join(PROJECT_ROOT, 'static_files'))
 
@@ -116,6 +127,14 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+STATICFILES_DIRS = (
+    'thinkingday/statics',
+)
+
+# Email sender settings
+SERVER_EMAIL = get_env_variable('SERVER_EMAIL', 'noreply@thinkingday.ch')
+DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL', 'noreply@thinkingday.ch')
 
 COMPRESS_PARSER = 'compressor.parser.Html5LibParser'
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
@@ -137,3 +156,16 @@ COMPRESS_JS_FILTERS = [
     ]
 
 SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = False  # For now
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/thanks'
+ACCOUNT_FORMS = {'signup': 'apps.user.forms.EmailOnlyForm'}

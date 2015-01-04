@@ -1,0 +1,144 @@
+@fontsans: 'Roboto', sans-serif;
+@fontserif: 'Josefin Slab', serif;
+
+@bannerimg: '/static/img/nomad.jpg';
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family: @fontsans;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: @fontserif;
+}
+
+#homelink {
+    background-image: url(/static/img/pfadi_logo.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100px;
+    background-position: 0px -20px;
+    color: #333;
+    display: block;
+    width: 164px;
+    height: 165px;
+    text-indent: -9999px;
+    position: absolute;
+    top: 0;
+    left: 20%;
+}
+
+#select_lang {
+    background: url(/static/img/lang_select.png) no-repeat center;
+    position: absolute;
+    top: 0;
+    left: 70%;
+    height: 32px;
+
+    ul {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0 3px;
+
+        li {
+            display: inline;
+            font-size: 10px;
+            padding: 0 2px;
+            form {
+                display: inline;
+
+                .lang_toggle_submit {
+                    text-decoration: none;
+                    color: black;
+                    background: none !important;
+                    cursor: pointer;
+                    border: 0;
+                    padding: 0 !important;
+                    font-family: @fontserif;
+                    color: #333;
+                }
+            }
+        }
+    }
+}
+
+#scouts-infos {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 97px;
+    height: 98px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.l-content {
+    margin: 0 auto;
+}
+
+.l-box {
+    padding: 0.5em 2em;
+}
+
+.banner {
+    background: transparent url(@bannerimg) 0 0 no-repeat fixed;
+    text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@bannerimg', sizingMethod='scale');
+
+    height: 320px;
+    width: 100%;
+    margin-bottom: 2em;
+    display: table;
+
+    h1 {
+        margin-top: 180px;
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    .banner-head {
+        margin-bottom: 0;
+        color: white;
+        font-weight: 500;
+        text-shadow: 0 1px 1px black;
+    }
+}
+
+.information-head {
+    color: black;
+    font-weight: 500;
+}
+
+footer {
+    background: #111;
+    color: #888;
+    bottom: 0;
+    padding: 0;
+    text-align: center;
+
+    > div {
+        margin-bottom: 20px;
+    }
+
+    div#contact {
+        font-weight: bold;
+    }
+
+    div#partenaires img {
+        height: 80px;
+    }
+
+    a {
+        color: #ddd;
+    }
+
+}
+
+.main-content {
+    padding: 0 10% 4em 10%;
+}

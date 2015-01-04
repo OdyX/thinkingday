@@ -1,0 +1,11 @@
+À faire, dans l'ordre; premier arrivé, premier servi!
+-----------------------------------------------------
+
+* Préparer une description de l'événement, informations générales et description, à faire traduire par le MSdS.
+
+* Créer le footer avec les logos
+
+* Créer le header avec menu pour changer de langues et lien dans le coin pour aller sur scouts.ch
+
+* Créer le formulaire d'inscription ne nécessitant que l'email, mais validant l'email quand même
+	→ Voir pour réutiliser les vues de 'authall.account'
