@@ -129,6 +129,10 @@ STATICFILES_DIRS = (
     'thinkingday/statics',
 )
 
+# Email sender settings
+SERVER_EMAIL = get_env_variable('SERVER_EMAIL', 'noreply@thinkingday.ch')
+DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL', 'noreply@thinkingday.ch')
+
 COMPRESS_PARSER = 'compressor.parser.Html5LibParser'
 COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'
 COMPRESS_OFFLINE = True
