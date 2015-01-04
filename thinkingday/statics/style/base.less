@@ -1,10 +1,18 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    background: grey;
+@fontsans: 'Roboto', sans-serif;
+@fontserif: 'Josefin Slab', serif;
+
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    font-family @fontsans;
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: 'Josefin Slab', serif;
+    font-family: @fontserif;
+}
+
+
+body {
+    background: grey;
 }
 
 #homelink {
@@ -22,36 +30,42 @@ h1, h2, h3, h4, h5 {
     top: 0;
     left: 20%;
 }
+
 #select_lang {
-    background: url(/static/img/lang_select.png) no-repeat;
+    background: url(/static/img/lang_select.png) no-repeat center;
     position: absolute;
     top: 0;
     left: 70%;
-    width: 47px;
     height: 32px;
-}
-#select_lang ul {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0 3px;
-}
-#select_lang ul li {
-    display: inline;
-    font-size: 10px;
-    padding: 0 2px;
-}
-#select_lang ul li a {
-    text-decoration: none;
-    color: black;
-}
-#select_lang ul li:first-child::before {
-    display: none;
+
+    ul {
+        list-style: none outside none;
+        margin: 0;
+        padding: 0 3px;
+
+        li {
+            display: inline;
+            font-size: 10px;
+            padding: 0 2px;
+            form {
+                display: inline;
+
+                .lang_toggle_submit {
+                    text-decoration: none;
+                    color: black;
+                    background: none !important;
+                    cursor: pointer;
+                    border: 0;
+                    padding: 0 !important;
+                    font-family: @fontserif;
+                    color: #333;
+                }
+            }
+        }
+    }
 }
 
 #scouts-infos {
-/*
-    background: url(/static/img/ecke_fr.png) no-repeat;
-*/
     position: absolute;
     top: 0;
     right: 0;
