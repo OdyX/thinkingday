@@ -6,11 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
 "POT-Creation-Date: 2015-01-04 13:50+0000\n"
-=======
-"POT-Creation-Date: 2015-01-04 11:06+0000\n"
->>>>>>> 1917185110735250d9d1bd5e017477a3297ffb80
 "PO-Revision-Date: 2014-12-11 20:03+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: fr\n"
@@ -30,21 +26,6 @@ msgstr "Événements"
 
 #: thinkingday/settings/base.py:93
 msgid "French"
-<<<<<<< HEAD
-msgstr ""
-
-#: thinkingday/settings/base.py:94
-msgid "German"
-msgstr ""
-
-#: thinkingday/settings/base.py:95
-msgid "Italian"
-msgstr ""
-
-#: thinkingday/settings/base.py:96
-msgid "English"
-msgstr ""
-=======
 msgstr "Français"
 
 #: thinkingday/settings/base.py:94
@@ -58,7 +39,6 @@ msgstr "Italien"
 #: thinkingday/settings/base.py:96
 msgid "English"
 msgstr "Anglais"
->>>>>>> 1917185110735250d9d1bd5e017477a3297ffb80
 
 #: thinkingday/templates/base.html:27
 msgid "ThinkingDay.ch"
@@ -86,26 +66,11 @@ msgstr "Bienvenue sur le site Thinkingday.ch!"
 
 #: thinkingday/templates/home.html:21
 msgid "Sign Up"
-<<<<<<< HEAD
-msgstr ""
-=======
 msgstr "S'enregistrer"
->>>>>>> 1917185110735250d9d1bd5e017477a3297ffb80
 
 #: thinkingday/templates/home.html:24
 #, python-format
 msgid "You are already connected as %(user)s !"
-<<<<<<< HEAD
-msgstr ""
-
-#: thinkingday/templates/home.html:26
-msgid "Sign out"
-msgstr ""
-
-#: thinkingday/templates/home.html:28
-msgid "Administration"
-msgstr ""
-=======
 msgstr "Tu es déjà connecté comme %(user)s !"
 
 #: thinkingday/templates/home.html:26
@@ -115,4 +80,3 @@ msgstr "Se déconnecter"
 #: thinkingday/templates/home.html:28
 msgid "Administration"
 msgstr "Administration"
->>>>>>> 1917185110735250d9d1bd5e017477a3297ffb80
