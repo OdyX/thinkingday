@@ -1,6 +1,8 @@
 @fontsans: 'Roboto', sans-serif;
 @fontserif: 'Josefin Slab', serif;
 
+@bannerimg: '/static/img/nomad.jpg';
+
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     font-family: @fontsans;
@@ -8,12 +10,6 @@ html, button, input, select, textarea,
 
 h1, h2, h3, h4, h5 {
     font-family: @fontserif;
-}
-
-
-body {
-    background: grey;
-    margin: 0 20%;
 }
 
 #homelink {
@@ -76,22 +72,49 @@ body {
     padding: 0;
 }
 
-#content {
-    margin-top: 170px;
+
+.l-content {
+    margin: 0 auto;
 }
 
-h1 {
-    display: block;
+.l-box {
+    padding: 0.5em 2em;
+}
+
+.banner {
+    background: transparent url(@bannerimg) 0 0 no-repeat fixed;
     text-align: center;
+    background-size: cover;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@bannerimg', sizingMethod='scale');
+
+    height: 320px;
+    width: 100%;
+    margin-bottom: 3em;
+    display: table;
+
+    .banner-head {
+        margin-top: 180px;
+        margin-bottom: 0;
+        font-size: 2em;
+        color: white;
+        font-weight: 500;
+        text-shadow: 0 1px 1px black;
+    }
+}
+
+.information-head {
+    color: black;
+    font-weight: 500;
 }
 
 footer {
-    position: absolute;
+    background: #111;
+    color: #888;
+
     bottom: 0;
-    width: 60%;
+    width: 100%;
     padding: 0;
     text-align: center;
-    color: white;
 
     > div {
         margin-bottom: 20px;
@@ -104,4 +127,9 @@ footer {
     div#partenaires img {
         height: 80px;
     }
+
+    a {
+        color: #ddd;
+    }
+
 }

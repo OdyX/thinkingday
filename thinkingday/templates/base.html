@@ -13,10 +13,12 @@
 
         {% block stylesheets %}
             {# Titles #}
-            <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css' />
             {# Body #}
-            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+            <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+            {# Pure CSS #}
             <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css" />
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css" />
             {% compress css %}
             <link href="{% static "style/base.less" %}" type="text/less" rel="stylesheet" />
             {% endcompress %}
@@ -34,51 +36,48 @@
         {% include "header.html" %}
     </header>
 
-    <div id="content">
-        {% block content %}
-        {% endblock %}
+    {% block banner %}
+        <div class="banner">
+            <h1 class="banner-head">
+                {% trans "Welcome on the ThinkingDay.ch page!" %}
+            </h1>
+        </div>
+    {% endblock %}
+
+    <div class="l-content">
+        <div class="information pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    {% block leftbox %}
+                    {% endblock %}
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    {% block rightbox %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="l-content">
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-1">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="l-box">
+        {% include "footer.html" %}
+    </footer>
 
     {% block footer_scripts %}
         {% include "javascript_libraries.html" %}
     {% endblock %}
-
-    <footer>
-        <div id="contact" class="pure-g">
-            <div class="pure-u-1-3">
-                <img src="{%static 'img/PFADI_LP_Footer_Telefon.png' %}" alt="telefon">
-                <p>+41 31 328 05 45</p>
-            </div>
-            <div class="pure-u-1-3">
-                <a href="mailto:info@pfadi.ch"><img src="{%static 'img/PFADI_LP_Footer_Mail.png' %}" alt="mail"></a>
-                <p>info@scouts.ch</p>
-            </div>
-            <div class="pure-u-1-3">
-                <a href="https://www.facebook.com/pfadibewegung.ch?fref=ts"><img src="{%static 'img/PFADI_LP_Footer_facebook.png' %}" alt="facebook"></a>
-                <p>{% trans "Scouts on Facebook" %}</p>
-            </div>
-        </div>
-        <div>
-            <p>{% trans 'Our partners:' %}</p>
-            <div id="partenaires" class="pure-g">
-                <div class="pure-u-1-5">
-                    <a href="http://www.pbs.ch"><img src="{%static 'img/pfadi.png' %}" alt="pfadi"></a>
-                </div>
-                <div class="pure-u-1-5">
-                    <a href="http://www.hajk.ch"><img src="{%static 'img/hajk.png' %}" alt="hajk"></a>
-                </div>
-                <div class="pure-u-1-5">
-                    <a href="http://www.prolinguis.ch"><img src="{%static 'img/pro_linguis.png' %}" alt="pro linguis"></a>
-                </div>
-                <div class="pure-u-1-5">
-                    <a href="http://www.fotopickexpress.ch"><img src="{%static 'img/foto_pick.png' %}" alt="pro linguis"></a>
-                </div>
-                <div class="pure-u-1-5">
-                    <a href="http://www.mobi.ch"><img src="{%static 'img/mobiliar.png' %}" alt="mobiliar"></a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     </body>
 </html>
