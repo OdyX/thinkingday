@@ -11,6 +11,7 @@ class Event(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(max_length=512),
         description=models.TextField(),
+        subscription_motivator=models.TextField(),
     )
 
     class Meta:

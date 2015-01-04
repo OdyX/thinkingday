@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 15:39+0000\n"
+"POT-Creation-Date: 2015-01-04 16:31+0000\n"
 "PO-Revision-Date: 2014-12-11 20:03+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: fr\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: apps/event/models.py:17
+#: apps/event/models.py:18
 msgid "Event"
 msgstr "Événement"
 
-#: apps/event/models.py:18
+#: apps/event/models.py:19
 msgid "Events"
 msgstr "Événements"
 
@@ -36,6 +36,10 @@ msgstr "Français"
 msgid "Italian"
 msgstr "Italien"
 
+#: thinkingday/settings/base.py:99
+msgid "English"
+msgstr "Anglais"
+
 #: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:41
 msgid "ThinkingDay.ch"
 msgstr "ThinkingDay.ch"
@@ -45,8 +49,9 @@ msgid ""
 "ThinkingDay.ch is a platform to allow scouts from Switzerland to gather "
 "together online and honour the World Thinking Day, each year on the 22nd of "
 "February."
-msgstr "ThinkingDay.ch est une plateforme pour permettre aux scouts de suisse de "
-"se rencontrer en ligne et honorer le World Thinking Day, fêté chaque année le "
+msgstr ""
+"ThinkingDay.ch est une plateforme pour permettre aux scouts de suisse de se "
+"rencontrer en ligne et honorer le World Thinking Day, fêté chaque année le "
 "22 février."
 
 #: thinkingday/templates/footer.html:15
@@ -73,25 +78,38 @@ msgstr "http://www.scout.ch/fr"
 msgid "ecke_de.png"
 msgstr "ecke_fr.png"
 
-#: thinkingday/templates/home.html:19
+#: thinkingday/templates/home.html:13
+msgid "Subscribe now!"
+msgstr ""
+
+#: thinkingday/templates/home.html:23
 msgid "Sign Up"
 msgstr "S'enregistrer"
 
-#: thinkingday/templates/home.html:22
-#, python-format
-msgid "You are already connected as %(user)s !"
+#: thinkingday/templates/home.html:26
+#, fuzzy, python-format
+#| msgid "You are already connected as %(user)s !"
+msgid ""
+"You are already connected as <b>%(user)s</b>, you cannot subscribe again!"
 msgstr "Tu es déjà connecté comme %(user)s !"
 
-#: thinkingday/templates/home.html:24
+#: thinkingday/templates/home.html:28
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: thinkingday/templates/home.html:26
+#: thinkingday/templates/home.html:30
 msgid "Administration"
 msgstr "Administration"
 
-#~ msgid "English"
-#~ msgstr "Anglais"
+#: thinkingday/templates/registration_thanks.html:5
+msgid "Thanks for the registration!"
+msgstr "Merci pour l'enregistrement!"
 
-#~ msgid "Welcome on the ThinkingDay.ch page!"
-#~ msgstr "Bienvenue sur le site Thinkingday.ch!"
+#: thinkingday/templates/registration_thanks.html:6
+msgid "We will keep you posted on the next steps."
+msgstr "Nous te tiendrons informé des prochaines étapes!"
+
+#: thinkingday/templates/registration_thanks.html:7
+msgid "See you on the 22nd of February!"
+msgstr "Au 22 février !"
+

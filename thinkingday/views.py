@@ -19,3 +19,7 @@ def home(request):
             'event': event,
             'form': form,
             })
+
+
+def thanks(request):
+    return render(request, 'registration_thanks.html')

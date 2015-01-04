@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 15:39+0000\n"
+"POT-Creation-Date: 2015-01-04 16:31+0000\n"
 "PO-Revision-Date: 2014-12-11 19:57+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: de\n"
@@ -16,11 +16,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: apps/event/models.py:17
+#: apps/event/models.py:18
 msgid "Event"
 msgstr ""
 
-#: apps/event/models.py:18
+#: apps/event/models.py:19
 msgid "Events"
 msgstr ""
 
@@ -34,6 +34,10 @@ msgstr ""
 
 #: thinkingday/settings/base.py:98
 msgid "Italian"
+msgstr ""
+
+#: thinkingday/settings/base.py:99
+msgid "English"
 msgstr ""
 
 #: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:41
@@ -71,21 +75,42 @@ msgstr "http://www.scout.ch/de"
 msgid "ecke_de.png"
 msgstr ""
 
-#: thinkingday/templates/home.html:19
+#: thinkingday/templates/home.html:13
+msgid "Subscribe now!"
+msgstr ""
+
+#: thinkingday/templates/home.html:23
 msgid "Sign Up"
 msgstr ""
 
-#: thinkingday/templates/home.html:22
+#: thinkingday/templates/home.html:26
 #, python-format
-msgid "You are already connected as %(user)s !"
+msgid ""
+"You are already connected as <b>%(user)s</b>, you cannot subscribe again!"
 msgstr ""
 
-#: thinkingday/templates/home.html:24
+#: thinkingday/templates/home.html:28
 msgid "Sign out"
 msgstr ""
 
-#: thinkingday/templates/home.html:26
+#: thinkingday/templates/home.html:30
 msgid "Administration"
+msgstr ""
+
+#: thinkingday/templates/registration_thanks.html:5
+msgid "Thanks for the registration!"
+msgstr ""
+
+#: thinkingday/templates/registration_thanks.html:6
+msgid "We will keep you posted on the next steps."
+msgstr ""
+
+#: thinkingday/templates/registration_thanks.html:7
+msgid "See you on the 22nd of February!"
+msgstr ""
+
+#: thinkingday/urls.py:17
+msgid "^thanks/"
 msgstr ""
 
 #~ msgid "Welcome on the ThinkingDay.ch page!"
