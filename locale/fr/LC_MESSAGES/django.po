@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Didier Raboud <oriole@vieux-mazel.ch>, 2014.
+# Didier Raboud <oriole@vieux-mazel.ch>, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 16:41+0000\n"
-"PO-Revision-Date: 2014-12-11 20:03+0100\n"
+"POT-Creation-Date: 2015-01-06 08:08+0000\n"
+"PO-Revision-Date: 2015-01-06 09:09+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -54,13 +54,29 @@ msgstr ""
 "rencontrer en ligne et honorer le World Thinking Day, fêté chaque année le "
 "22 février."
 
-#: thinkingday/templates/footer.html:15
+#: thinkingday/templates/footer.html:6
+msgid "Phone"
+msgstr "Téléphone"
+
+#: thinkingday/templates/footer.html:10 thinkingday/templates/footer.html:14
+msgid "E-mail"
+msgstr "Courriel"
+
+#: thinkingday/templates/footer.html:14 thinkingday/templates/footer.html:15
+msgid "info@pfadi.ch"
+msgstr "info@scouts.ch"
+
+#: thinkingday/templates/footer.html:19
 msgid "Scouts on Facebook"
 msgstr "Les scouts sur Facebook"
 
-#: thinkingday/templates/footer.html:19
+#: thinkingday/templates/footer.html:23
 msgid "Our partners:"
 msgstr "Nos partenaires :"
+
+#: thinkingday/templates/footer.html:26
+msgid "PBS"
+msgstr "MSdS"
 
 #: thinkingday/templates/header.html:5
 msgid "Homepage"
@@ -111,3 +127,4 @@ msgstr "Nous te tiendrons informé des prochaines étapes!"
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
 msgstr "Au 22 février !"
+

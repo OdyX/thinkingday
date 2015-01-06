@@ -1,13 +1,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Didier Raboud <oriole@vieux-mazel.ch>, 2014.
+# Didier Raboud <oriole@vieux-mazel.ch>, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 16:31+0000\n"
-"PO-Revision-Date: 2014-12-11 19:57+0100\n"
+"POT-Creation-Date: 2015-01-06 08:08+0000\n"
+"PO-Revision-Date: 2015-01-06 09:12+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -26,38 +26,54 @@ msgstr ""
 
 #: thinkingday/settings/base.py:96
 msgid "German"
-msgstr ""
+msgstr "Deutsch "
 
 #: thinkingday/settings/base.py:97
 msgid "French"
-msgstr ""
+msgstr "Französich"
 
 #: thinkingday/settings/base.py:98
 msgid "Italian"
-msgstr ""
+msgstr "Italienisch"
 
 #: thinkingday/settings/base.py:99
 msgid "English"
-msgstr ""
+msgstr "English"
 
-#: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:41
+#: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:42
 msgid "ThinkingDay.ch"
 msgstr "ThinkingDay.ch"
 
-#: thinkingday/templates/base.html:44
+#: thinkingday/templates/base.html:45
 msgid ""
 "ThinkingDay.ch is a platform to allow scouts from Switzerland to gather "
 "together online and honour the World Thinking Day, each year on the 22nd of "
 "February."
 msgstr ""
 
-#: thinkingday/templates/footer.html:15
+#: thinkingday/templates/footer.html:6
+msgid "Phone"
+msgstr "Telefon"
+
+#: thinkingday/templates/footer.html:10 thinkingday/templates/footer.html:14
+msgid "E-mail"
+msgstr "E-mail"
+
+#: thinkingday/templates/footer.html:14 thinkingday/templates/footer.html:15
+msgid "info@pfadi.ch"
+msgstr "info@pfadi.ch"
+
+#: thinkingday/templates/footer.html:19
 msgid "Scouts on Facebook"
 msgstr "Pfadi auf Facebook"
 
-#: thinkingday/templates/footer.html:19
+#: thinkingday/templates/footer.html:23
 msgid "Our partners:"
 msgstr "Unsere Partner:"
+
+#: thinkingday/templates/footer.html:26
+msgid "PBS"
+msgstr "PBS"
 
 #: thinkingday/templates/header.html:5
 msgid "Homepage"
@@ -73,7 +89,7 @@ msgstr "http://www.scout.ch/de"
 
 #: thinkingday/templates/header.html:21
 msgid "ecke_de.png"
-msgstr ""
+msgstr "ecke_de.png"
 
 #: thinkingday/templates/home.html:13
 msgid "Subscribe now!"
@@ -95,7 +111,7 @@ msgstr ""
 
 #: thinkingday/templates/home.html:30
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: thinkingday/templates/registration_thanks.html:5
 msgid "Thanks for the registration!"
@@ -107,10 +123,6 @@ msgstr ""
 
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
-msgstr ""
-
-#: thinkingday/urls.py:17
-msgid "^thanks/"
 msgstr ""
 
 #~ msgid "Welcome on the ThinkingDay.ch page!"
