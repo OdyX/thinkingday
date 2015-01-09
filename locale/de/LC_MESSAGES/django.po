@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 08:08+0000\n"
 "PO-Revision-Date: 2015-01-06 09:12+0100\n"
-"Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
+"Last-Translator: Pamina - Christine Egli <pamina@pfadi-uster-greifensee.ch>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,19 +18,19 @@ msgstr ""
 
 #: apps/event/models.py:18
 msgid "Event"
-msgstr ""
+msgstr "Anlass"
 
 #: apps/event/models.py:19
 msgid "Events"
-msgstr ""
+msgstr "Anlässe"
 
 #: thinkingday/settings/base.py:96
 msgid "German"
-msgstr "Deutsch "
+msgstr "Deutsch"
 
 #: thinkingday/settings/base.py:97
 msgid "French"
-msgstr "Französich"
+msgstr "Französisch"
 
 #: thinkingday/settings/base.py:98
 msgid "Italian"
@@ -38,7 +38,7 @@ msgstr "Italienisch"
 
 #: thinkingday/settings/base.py:99
 msgid "English"
-msgstr "English"
+msgstr "Englisch"
 
 #: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:42
 msgid "ThinkingDay.ch"
@@ -50,6 +50,9 @@ msgid ""
 "together online and honour the World Thinking Day, each year on the 22nd of "
 "February."
 msgstr ""
+"ThinkingDay.ch ist eine Plattform, die es den Schweizer Pfadis ermöglicht, "
+"sich online zu treffen und den World Thinking Day, der jeweils am 22. "
+"Februar gefeiert wird, zu ehren."
 
 #: thinkingday/templates/footer.html:6
 msgid "Phone"
@@ -65,7 +68,7 @@ msgstr "info@pfadi.ch"
 
 #: thinkingday/templates/footer.html:19
 msgid "Scouts on Facebook"
-msgstr "Pfadi auf Facebook"
+msgstr "Pfadis auf Facebook"
 
 #: thinkingday/templates/footer.html:23
 msgid "Our partners:"
@@ -81,7 +84,7 @@ msgstr "Hauptseite"
 
 #: thinkingday/templates/header.html:5
 msgid "Swiss scouts"
-msgstr "Schweizerische Pfadis"
+msgstr "Schweizer Pfadis"
 
 #: thinkingday/templates/header.html:21
 msgid "http://www.scout.ch"
@@ -93,21 +96,21 @@ msgstr "ecke_de.png"
 
 #: thinkingday/templates/home.html:13
 msgid "Subscribe now!"
-msgstr ""
+msgstr "Melde dich jetzt an!"
 
 #: thinkingday/templates/home.html:23
 msgid "Sign Up"
-msgstr ""
+msgstr "Anmelden"
 
 #: thinkingday/templates/home.html:26
 #, python-format
 msgid ""
 "You are already connected as <b>%(user)s</b>, you cannot subscribe again!"
-msgstr ""
+msgstr "Du bist bereits als <b>%(user)s</b> angemeldet!"
 
 #: thinkingday/templates/home.html:28
 msgid "Sign out"
-msgstr ""
+msgstr "Abmelden"
 
 #: thinkingday/templates/home.html:30
 msgid "Administration"
@@ -115,15 +118,15 @@ msgstr "Administration"
 
 #: thinkingday/templates/registration_thanks.html:5
 msgid "Thanks for the registration!"
-msgstr ""
+msgstr "Herzlichen Dank für deine Anmeldung!"
 
 #: thinkingday/templates/registration_thanks.html:6
 msgid "We will keep you posted on the next steps."
-msgstr ""
+msgstr "Wir werden Dich über die nächsten Schritte informieren."
 
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
-msgstr ""
+msgstr "Bis am 22. Februar!"
 
 #~ msgid "Welcome on the ThinkingDay.ch page!"
 #~ msgstr "Wilkommen auf ThinkingDay.ch!"
