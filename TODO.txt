@@ -1,3 +1,6 @@
 À faire, dans l'ordre; premier arrivé, premier servi!
 -----------------------------------------------------
 
+Carte :
+    - Repérer le positionnement de la souris et ajouter un événement click pour placer une icône pour l'insertion d'un message. Report des coordonnées pour l'insertion du message.
+    - Au chargement, ajouter les messages précédemment enregistrés sous forme de marques/icônes avec ouverture "popup" lorsqu'on click.
