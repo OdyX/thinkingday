@@ -78,9 +78,10 @@
         {% include "footer.html" %}
     </footer>
 
+    {% compress js %}
     {% block footer_scripts %}
-        {% include "javascript_libraries.html" %}
     {% endblock %}
+    {% endcompress %}
 
     </body>
 </html>
