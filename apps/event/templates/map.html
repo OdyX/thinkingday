@@ -27,7 +27,9 @@
     ],
     view: new ol.View({
       center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
-      zoom: 8
+      zoom: 8,
+      minZoom: 8,
+      maxZoom: 17
     })
   });
 </script>
