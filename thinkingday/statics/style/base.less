@@ -12,66 +12,68 @@ h1, h2, h3, h4, h5 {
     font-family: @fontserif;
 }
 
-#homelink {
-    background-image: url(/static/img/pfadi_logo.svg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    min-height: 100px;
-    background-position: 0px -20px;
-    color: #333;
-    display: block;
-    width: 164px;
-    height: 165px;
-    text-indent: -9999px;
-    position: absolute;
-    top: 0;
-    left: 20%;
-}
+#absolute-header {
+    position: relative;
+    #homelink {
+        background-image: url(/static/img/pfadi_logo.svg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        min-height: 100px;
+        background-position: 0px -20px;
+        color: #333;
+        display: block;
+        width: 164px;
+        height: 165px;
+        text-indent: -9999px;
+        position: absolute;
+        top: 0;
+        left: 10%;
+    }
 
-#select_lang {
-    background: url(/static/img/lang_select.png) no-repeat center;
-    position: absolute;
-    top: 0;
-    left: 70%;
-    height: 32px;
+    #select_lang {
+        background: url(/static/img/lang_select.png) no-repeat center;
+        position: absolute;
+        top: 0;
+        left: 70%;
+        height: 32px;
 
-    ul {
-        list-style: none outside none;
-        margin: 0;
-        padding: 0 3px;
+        ul {
+            list-style: none outside none;
+            margin: 0;
+            padding: 0 3px;
 
-        li {
-            display: inline;
-            font-size: 10px;
-            padding: 0 2px;
-            form {
+            li {
                 display: inline;
+                font-size: 10px;
+                padding: 0 2px;
+                form {
+                    display: inline;
 
-                .lang_toggle_submit {
-                    text-decoration: none;
-                    color: black;
-                    background: none !important;
-                    cursor: pointer;
-                    border: 0;
-                    padding: 0 !important;
-                    font-family: @fontserif;
-                    color: #333;
+                    .lang_toggle_submit {
+                        text-decoration: none;
+                        color: black;
+                        background: none !important;
+                        cursor: pointer;
+                        border: 0;
+                        padding: 0 !important;
+                        font-family: @fontserif;
+                        color: #333;
+                    }
                 }
             }
         }
     }
-}
 
-#scouts-infos {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 97px;
-    height: 98px;
-    margin: 0;
-    padding: 0;
+    #scouts-infos {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 97px;
+        height: 98px;
+        margin: 0;
+        padding: 0;
+    }
 }
-
 
 .l-content {
     margin: 0 auto;
@@ -143,4 +145,37 @@ footer {
 
 .main-content {
     padding: 0 10% 4em 10%;
+}
+
+.pure-menu {
+    li {
+        ul {
+            border: 0!important;
+            order-top: 1px solid #ddd!important;
+            border-left: 1px solid #eee!important;
+            box-shadow: 1px 2px 3px rgba(0,0,0,.3)!important;
+        }
+        a {
+            padding: 13px 20px!important;
+            color: #373737;
+            text-shadow: 0 1px 1px #fff;
+        }
+        li {
+            a {
+                padding: 6px 20px!important;
+            }
+        }
+    }
+    .pure-menu-children {
+        a {
+            padding: 4px 20px!important;
+            font-size: 14px;
+        }
+        .pure-menu-separator {
+            margin: 0 2px!important;
+        }
+        li {
+            border-bottom: 0!important;
+        }
+    }
 }

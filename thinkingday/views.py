@@ -18,6 +18,7 @@ def home(request):
     return render(request, 'home.html', {
             'event': event,
             'form': form,
+            'current_page': 'home',
             })
 
 
