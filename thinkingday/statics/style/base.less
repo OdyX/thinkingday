@@ -3,6 +3,8 @@
 
 @bannerimg: '/static/img/nomad.jpg';
 
+@scoutscornerwidth: 97px;
+
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     font-family: @fontsans;
@@ -10,6 +12,44 @@ html, button, input, select, textarea,
 
 h1, h2, h3, h4, h5 {
     font-family: @fontserif;
+}
+
+/* Barre de menus */
+.pure-menu {
+    ul.right {
+        float: right;
+        margin-right: @scoutscornerwidth;
+    }
+    li {
+        ul {
+            border: 0!important;
+            order-top: 1px solid #ddd!important;
+            border-left: 1px solid #eee!important;
+            box-shadow: 1px 2px 3px rgba(0,0,0,.3)!important;
+        }
+        a {
+            padding: 13px 20px!important;
+            color: #373737;
+            text-shadow: 0 1px 1px #fff;
+        }
+        li {
+            a {
+                padding: 6px 20px!important;
+            }
+        }
+    }
+    .pure-menu-children {
+        a {
+            padding: 4px 20px!important;
+            font-size: 14px;
+        }
+        .pure-menu-separator {
+            margin: 0 2px!important;
+        }
+        li {
+            border-bottom: 0!important;
+        }
+    }
 }
 
 #absolute-header {
@@ -68,7 +108,7 @@ h1, h2, h3, h4, h5 {
         position: absolute;
         top: 0;
         right: 0;
-        width: 97px;
+        width: @scoutscornerwidth;
         height: 98px;
         margin: 0;
         padding: 0;
@@ -145,37 +185,4 @@ footer {
 
 .main-content {
     padding: 0 10% 4em 10%;
-}
-
-.pure-menu {
-    li {
-        ul {
-            border: 0!important;
-            order-top: 1px solid #ddd!important;
-            border-left: 1px solid #eee!important;
-            box-shadow: 1px 2px 3px rgba(0,0,0,.3)!important;
-        }
-        a {
-            padding: 13px 20px!important;
-            color: #373737;
-            text-shadow: 0 1px 1px #fff;
-        }
-        li {
-            a {
-                padding: 6px 20px!important;
-            }
-        }
-    }
-    .pure-menu-children {
-        a {
-            padding: 4px 20px!important;
-            font-size: 14px;
-        }
-        .pure-menu-separator {
-            margin: 0 2px!important;
-        }
-        li {
-            border-bottom: 0!important;
-        }
-    }
 }

@@ -8,6 +8,7 @@ urlpatterns = patterns(
     '',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^lang/', include('django.conf.urls.i18n')),
+    url(r'^accounts/profile$', 'apps.user.views.profile', name='user_profile'),
     url(r'^accounts/', include('allauth.urls')),
 )
 

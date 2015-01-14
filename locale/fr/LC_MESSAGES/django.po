@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 08:08+0000\n"
+"POT-Creation-Date: 2015-01-14 17:55+0000\n"
 "PO-Revision-Date: 2015-01-06 09:09+0100\n"
 "Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
 "Language: fr\n"
@@ -78,7 +78,23 @@ msgstr "Nos partenaires :"
 msgid "PBS"
 msgstr "MSdS"
 
-#: thinkingday/templates/header.html:5
+#: thinkingday/templates/header.html:6
+msgid "Home"
+msgstr "Page d'accueil"
+
+#: thinkingday/templates/header.html:8 thinkingday/templates/home.html:30
+msgid "Administration"
+msgstr "Administration"
+
+#: thinkingday/templates/header.html:13
+msgid "Profile"
+msgstr "Profil"
+
+#: thinkingday/templates/header.html:15 thinkingday/templates/home.html:28
+msgid "Sign out"
+msgstr "Se déconnecter"
+
+#: thinkingday/templates/header.html:23
 msgid "Homepage"
 msgstr "Page d'accueil"
 
@@ -108,14 +124,6 @@ msgid ""
 "You are already connected as <b>%(user)s</b>, you cannot subscribe again!"
 msgstr "Tu es déjà connecté comme %(user)s, tu ne peux pas te ré-inscrire !"
 
-#: thinkingday/templates/home.html:28
-msgid "Sign out"
-msgstr "Se déconnecter"
-
-#: thinkingday/templates/home.html:30
-msgid "Administration"
-msgstr "Administration"
-
 #: thinkingday/templates/registration_thanks.html:5
 msgid "Thanks for the registration!"
 msgstr "Merci pour l'enregistrement!"
@@ -127,4 +135,3 @@ msgstr "Nous te tiendrons informé des prochaines étapes!"
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
 msgstr "Au 22 février !"
-
