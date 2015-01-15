@@ -1,27 +1,29 @@
 {% load i18n %}
 {% load setlang %}
-{% if user.is_authenticated %}
-    <div class="pure-menu pure-menu-open pure-menu-horizontal">
-        <ul>
-            <li {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
-            {% if user.is_superuser %}
-                <li><a href="{% url 'admin:index' %}">{% trans "Administration" %}</a></li>
-            {% endif %}
-        </ul>
-        <ul class="right">
-            <li class="pure-dropdown right">
-                <a href="{% url 'user_profile' %}">{% trans "Profile" %}</a>
-                <ul class="pure-menu-children">
-                    <li><a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-{% endif %}
 <div id="absolute-header">
-    <div>
-        <a id="homelink" href="{% url 'home' %}" title="{% trans "Homepage" %}">{% trans "Swiss scouts" %}</a>
-    </div>
+    {% if not user.is_authenticated %}
+        <div>
+            <a id="homelink" href="{% url 'home' %}" title="{% trans "Homepage" %}">{% trans "Swiss scouts" %}</a>
+        </div>
+    {% else %}
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul>
+                <li {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Homepage" %}</a></li>
+                {% if user.is_superuser %}
+                    <li><a href="{% url 'admin:index' %}">{% trans "Administration" %}</a></li>
+                {% endif %}
+            </ul>
+            <ul class="right">
+                <li class="pure-dropdown right">
+                    <a href="{% url 'user_profile' %}">{% trans "Profile" %}</a>
+                    <ul class="pure-menu-children">
+                        <li><a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div style="clear: right;"></div>
+        </div>
+    {% endif %}
     <div id="select_lang">
         <ul>
             {% get_language_info_list for LANGUAGES as languages %}
