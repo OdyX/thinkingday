@@ -14,10 +14,10 @@ def setlang(request, newlang):
 
 
 @register.filter
-def resource_remotelocal(remoteurl):
+def resource_remotelocal(remoteurl, altname=""):
     """ Return link for remote or static url for a file in ext/
     """
     if settings.STATICFILES_LOCAL:
-        return settings.STATIC_URL + "ext/"
+        return settings.STATIC_URL + "ext/" + altname
     else:
         return remoteurl
