@@ -11,6 +11,8 @@ INSTALLED_APPS += (
     'django_extensions',
 )
 
+STATICFILES_LOCAL = get_env_variable('STATICFILES_LOCAL', True)
+
 DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 
 INTERNAL_IPS = ('127.0.0.1',)

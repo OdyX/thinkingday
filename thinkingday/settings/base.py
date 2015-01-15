@@ -160,6 +160,8 @@ STATICFILES_DIRS = (
     'thinkingday/statics',
 )
 
+STATICFILES_LOCAL = False
+
 # Email sender settings
 SERVER_EMAIL = get_env_variable('SERVER_EMAIL', 'noreply@thinkingday.ch')
 DEFAULT_FROM_EMAIL = get_env_variable('DEFAULT_FROM_EMAIL', 'noreply@thinkingday.ch')
