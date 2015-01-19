@@ -19,32 +19,105 @@
 {% endblock %}
 {% block local_scripts %}
 <script type="text/javascript">
-  var map = new ol.Map({
-    target: 'map',
-    layers: [
-      new ol.layer.Tile({
-        source: new ol.source.OSM()
-      })
-    ],
-    view: new ol.View({
-      center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
-      zoom: 8,
-      minZoom: 8,
-      maxZoom: 17
-    })
-  });
 
-  //$.ajax("{% url 'apps.event.query.messages' %}")
-    //.done(function() {
-         //Create pointers on the map
-    //});
+    var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+            anchor: [0.5, 46],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            opacity: 0.75,
+            src: 'http://openlayers.org/en/v3.1.1/examples/data/icon.png'
+        }))
+    });
+
+    var iconFeatures = [];
+
+    function addIcon(message) {
+        var iconFeature = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
+            name: message.content
+        });
+        iconFeature.setStyle(iconStyle);
+        iconFeatures.push(iconFeature);
+    }
+
+    $.ajax("{% url 'apps.event.query.messages' %}")
+    .done(function(result) {
+        var objects = null;
+        try {
+            var objects = $.parseJSON(result);
+        } catch (e) {}
+        if (objects)
+            $.each(objects, function(item, value) {
+                addIcon(value);
+            });
+    });
+
+    var messagesLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: iconFeatures
+        })
+    });
+
+    /**
+     * Elements that make up the popup.
+     */
+    var container = document.getElementById('popup');
+    var content = document.getElementById('popup-content');
+
+    /**
+     * Create an overlay to anchor the popup to the map.
+     */
+    var popupOverlay = new ol.Overlay({
+        element: container,
+        positioning: 'bottom-center',
+        stopEvent: false
+    });
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }),
+            messagesLayer
+        ],
+        overlays: [popupOverlay],
+        view: new ol.View({
+            center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
+            zoom: 8,
+            minZoom: 8,
+            maxZoom: 17
+        })
+    });
+
+    // display popup on click
+    map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature, layer) {
+                return feature;
+            });
+            if (feature) {
+                var geometry = feature.getGeometry();
+                var coord = geometry.getCoordinates();
+                popupOverlay.setPosition(coord);
+                content.innerHTML = feature.get('name');
+                container.style.display = 'block';
+            } else {
+                container.style.display = 'none';
+            }
+    });
 </script>
 {% endblock %}
 
 {% block content %}
 <div class="pure-g">
     <div class="pure-u-1 pure-u-md-4-5">
-        <div id="map" class="map"></div>
+        <div id="map" class="map">
+            <div id="popup" class="ol-popup" style="position: absolute; bottom: 60px; width: 100px; left: -50px; background: white;">
+                <div id="popup-content"></div>
+            </div>
+        </div>
     </div>
     <div class="pure-u-1 pure-u-md-1-5">
         <div class="l-box">
