@@ -1,0 +1,3 @@
+[submodule "virtualization/rawbot-virtualization"]
+	path = virtualization/rawbot-virtualization
+	url = https://github.com/team-rawbot/rawbot-virtualization.git
