@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render  # , redirect
 from apps.event.models import Event
+from django.core.exceptions import PermissionDenied
 
-def map(request):
+
+def map(request, event_codename):
     try:
-        event = Event.objects\
-            .untranslated()\
-            .use_fallbacks()\
-            .order_by('start')[0]
+        event = Event.objects.get(codename=event_codename)
     except:
-        event = None
+        raise PermissionDenied()
 
     return render(request, 'map.html', {
             'event': event,
