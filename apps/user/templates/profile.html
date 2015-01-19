@@ -1,8 +1,54 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load account %}
+{% load socialaccount %}
 
 {% block leftbox %}
-    <h3 class="information-head">{{ user }}</h3>
+    <h3 class="information-head">{% user_display user %}</h3>
+    <table>
+        <tbody>
+          <tr>
+              <th>{% trans "Username" %}</th>
+              <td>{{ user.username }}</td>
+          </tr>
+          <tr>
+              <th>{% trans "Email" %}</th>
+              <td>{{ user.email }}</td>
+          </tr>
+          <tr>
+              <th>{% trans "Avatar" %}</th>
+              <td><img src="{{ user.profile.profile_image_url }}" /></td>
+          </tr>
+          {% get_social_accounts user as socaccounts %}
+          {% if socaccounts %}
+              <tr>
+                  <th>{% trans "Social accounts" %}</th>
+                  <td>
+                      <ul>
+                        {% if socaccounts.github %}
+                            <li>GitHub
+                              <ul>
+                              {% for s in socaccounts.github %}
+                                <li><a href="https://github.com/{{ s }}">{{ s }}</a></li>
+                              {% endfor %}
+                              </ul>
+                            </li>
+                        {% endif %}
+                        {% if socaccounts.twitter %}
+                            <li>Twitter
+                              <ul>
+                              {% for s in socaccounts.twitter %}
+                                <li><a href="https://twitter.com/{{ s }}">{{ s }}</a></li>
+                              {% endfor %}
+                              </ul>
+                            </li>
+                        {% endif %}
+                      </ul>
+                  </td>
+              </tr>
+          {% endif %}
+        </tbody>
+    </table>
 {% endblock %}
 
 {% block rightbox %}
