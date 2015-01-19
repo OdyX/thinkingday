@@ -25,24 +25,15 @@
                   <th>{% trans "Social accounts" %}</th>
                   <td>
                       <ul>
-                        {% if socaccounts.github %}
-                            <li>GitHub
-                              <ul>
-                              {% for s in socaccounts.github %}
-                                <li><a href="https://github.com/{{ s }}">{{ s }}</a></li>
-                              {% endfor %}
-                              </ul>
-                            </li>
-                        {% endif %}
-                        {% if socaccounts.twitter %}
-                            <li>Twitter
-                              <ul>
-                              {% for s in socaccounts.twitter %}
-                                <li><a href="https://twitter.com/{{ s }}">{{ s }}</a></li>
-                              {% endfor %}
-                              </ul>
-                            </li>
-                        {% endif %}
+                          {% for s in socaccounts.github %}
+                              <li>GitHub: <a href="https://github.com/{{ s }}">{{ s }}</a></li>
+                          {% endfor %}
+                          {% for s in socaccounts.twitter %}
+                              <li>Twitter: <a href="https://twitter.com/{{ s }}">{{ s }}</a></li>
+                          {% endfor %}
+                          {% for s in socaccounts.facebook %}
+                            <li>Facebook: <a href="https://facebook.com/{{ s }}">{{ s }}</a></li>
+                          {% endfor %}
                       </ul>
                   </td>
               </tr>
