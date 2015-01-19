@@ -1,0 +1,19 @@
+- set_fact: database_type=postgresql
+
+- name: install postgis and friends
+  apt: pkg={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - postgis
+    - postgresql-9.1-postgis
+    - libproj-dev
+    - gdal-bin
+  sudo: yes
+
+- name: convert database to postgis
+  action: command psql -d {{ database_name }} -f /usr/share/postgresql/9.1/contrib/postgis-1.5/{{ item }}
+  sudo_user: postgres
+  sudo: yes
+  with_items:
+    - postgis.sql
+    - spatial_ref_sys.sql

@@ -20,6 +20,7 @@
     ## depending on your choice here.
     # - { role: mysql }
     - { role: postgresql }
+    - { role: postgis }
 
     ## Scripting / Language support
     # - { role: php-fpm }       # PHP using Nginx and PHP-FPM

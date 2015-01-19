@@ -51,6 +51,7 @@ UPSTREAM_APPS = (
     'django.contrib.staticfiles',
     'compressor',
     'django.contrib.sites',
+    'django_comments',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -114,8 +115,9 @@ WSGI_APPLICATION = 'thinkingday.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse(get_env_variable('DATABASE_URL'))
+    'default': dj_database_url.parse(get_env_variable('DATABASE_URL')),
 }
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

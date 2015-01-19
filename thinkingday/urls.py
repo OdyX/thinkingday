@@ -10,6 +10,7 @@ urlpatterns = patterns(
     url(r'^lang/', include('django.conf.urls.i18n')),
     url(r'^accounts/profile/$', 'apps.user.views.profile', name='user_profile'),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^comments/', include('django_comments.urls')),
 )
 
 urlpatterns += i18n_patterns('',
