@@ -32,7 +32,7 @@
                               <li>Twitter: <a href="https://twitter.com/{{ s }}">{{ s }}</a></li>
                           {% endfor %}
                           {% for s in socaccounts.facebook %}
-                            <li>Facebook: <a href="https://facebook.com/{{ s }}">{{ s }}</a></li>
+                            <li>Facebook: <a href="https://facebook.com/{{ s }}">{{ s.link }}</a></li>
                           {% endfor %}
                       </ul>
                   </td>
