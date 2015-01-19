@@ -205,6 +205,7 @@ ACCOUNT_FORMS = {'signup': 'apps.user.forms.EmailOnlyForm'}
 
 # Social accounts configuration
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_EMAIL_REQUIRED = False
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {

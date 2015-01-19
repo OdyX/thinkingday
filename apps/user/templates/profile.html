@@ -8,12 +8,12 @@
     <table>
         <tbody>
           <tr>
-              <th>{% trans "Username" %}</th>
-              <td>{{ user.username }}</td>
+              <th>{% trans "Fullname" %}</th>
+              <td>{{ user.get_full_name }}</td>
           </tr>
           <tr>
               <th>{% trans "Email" %}</th>
-              <td>{{ user.email }}</td>
+              <td><a href="mailto: {{user.email}}">{{ user.email }}</a></td>
           </tr>
           <tr>
               <th>{% trans "Avatar" %}</th>
@@ -37,6 +37,17 @@
                       </ul>
                   </td>
               </tr>
+              {% for account in user.socialaccount_set.all %}
+                <h2 style="text-transform:capitalize;">{{ account.provider }} account data</h2>
+                <p>UID: <a href="{{account.extra_data.link }}">{{ account.uid }}</a></p>
+                <p>Username: {{ account.extra_data.username }}</p>
+                <p>First Name: {{ account.extra_data.first_name }}</p>
+                <p>Last Name: {{ account.extra_data.last_name }}</p>
+                <p>EMAIL: {{ account.extra_data.e }}</p>
+                <p>Profile Link: <a href="{{ account.extra_data.link }}">{{ account.extra_data.link }}</a></p>
+                <p>Gender: {{ account.extra_data.gender }}</p>
+                <p>Birthday: {{ account.extra_data.birthday }}</p>
+             {% endfor %}
           {% endif %}
         </tbody>
     </table>
