@@ -206,3 +206,9 @@ ACCOUNT_FORMS = {'signup': 'apps.user.forms.EmailOnlyForm'}
 # Social accounts configuration
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_EMAIL_REQUIRED = False
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email', 'publish_stream'],
+        'METHOD': 'js_sdk'  # instead of 'oauth2'
+    }
+}
