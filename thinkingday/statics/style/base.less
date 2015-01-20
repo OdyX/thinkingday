@@ -5,6 +5,8 @@
 @banneroffset: -20px;
 @scoutscornerwidth: 97px;
 
+@linkhovercolor: rgb(106, 76, 48);
+
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     font-family: @fontsans;
@@ -12,6 +14,16 @@ html, button, input, select, textarea,
 
 h1, h2, h3, h4, h5 {
     font-family: @fontserif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: black dotted 1px;
+    &:hover {
+        color: @linkhovercolor;
+        border-bottom: @linkhovercolor dotted 1px;
+    }
 }
 
 /* Barre de menus */
@@ -190,4 +202,9 @@ footer {
 
 .main-content {
     padding: 0 10% 4em 10%;
+}
+
+.socialaccount-avatar {
+    height: 40px;
+    vertical-align: middle
 }

@@ -19,35 +19,16 @@
               <th>{% trans "Avatar" %}</th>
               <td><img src="{{ user.profile.profile_image_url }}" /></td>
           </tr>
-          {% get_social_accounts user as socaccounts %}
           {% if socaccounts %}
               <tr>
-                  <th>{% trans "Social accounts" %}</th>
-                  <td>
-                      <ul>
-                          {% for s in socaccounts.github %}
-                              <li>GitHub: <a href="https://github.com/{{ s }}">{{ s }}</a></li>
-                          {% endfor %}
-                          {% for s in socaccounts.twitter %}
-                              <li>Twitter: <a href="https://twitter.com/{{ s }}">{{ s }}</a></li>
-                          {% endfor %}
-                          {% for s in socaccounts.facebook %}
-                            <li>Facebook: <a href="https://facebook.com/{{ s }}">{{ s.link }}</a></li>
-                          {% endfor %}
-                      </ul>
-                  </td>
+                  <th colspan="2">{% trans "Social accounts" %}</th>
               </tr>
-              {% for account in user.socialaccount_set.all %}
-                <h2 style="text-transform:capitalize;">{{ account.provider }} account data</h2>
-                <p>UID: <a href="{{account.extra_data.link }}">{{ account.uid }}</a></p>
-                <p>Username: {{ account.extra_data.username }}</p>
-                <p>First Name: {{ account.extra_data.first_name }}</p>
-                <p>Last Name: {{ account.extra_data.last_name }}</p>
-                <p>EMAIL: {{ account.extra_data.e }}</p>
-                <p>Profile Link: <a href="{{ account.extra_data.link }}">{{ account.extra_data.link }}</a></p>
-                <p>Gender: {{ account.extra_data.gender }}</p>
-                <p>Birthday: {{ account.extra_data.birthday }}</p>
-             {% endfor %}
+              {% for s in socaccounts %}
+                <tr>
+                  <td>{{ s.provider|title }}</td>
+                  <td><img src="{{ s.get_avatar_url }}" class="socialaccount-avatar" /> <a href="{{ s.get_profile_url }}">{{ s.get_provider_account }}</a></td>
+                </tr>
+              {% endfor %}
           {% endif %}
         </tbody>
     </table>
