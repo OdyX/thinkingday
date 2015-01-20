@@ -53,3 +53,8 @@
     </div>
 </form>
 {% endblock %}
+
+{% block remote_scripts %}
+{{ block.super }}
+{% providers_media_js %}
+{% endblock %}

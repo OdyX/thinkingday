@@ -45,7 +45,7 @@ class SocAccountChoiceField(forms.ModelChoiceField):
 
 
 class ProfileForm(forms.ModelForm):
-    scoutname = forms.CharField(max_length=512)
+    scoutname = forms.CharField(max_length=512, required=False)
     socialaccount = SocAccountChoiceField(
         required=False,
         user=False)
