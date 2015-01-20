@@ -38,8 +38,8 @@
 <form class="pure-form pure-form-aligned" action="" method="post">
     {% csrf_token %}
     {{ profileform.as_divs }}
-    <div class="pure-controls">
-        <input class="button form-goal-submit" type="submit" value="{% trans "Edit" %}" />
+    <div class="pure-control-group">
+        <input class="pure-button pure-button-primary" type="submit" value="{% trans "Save" %}" />
     </div>
 </form>
 {% endblock %}
