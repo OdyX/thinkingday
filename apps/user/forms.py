@@ -52,7 +52,8 @@ class ProfileForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
-        self.fields['socialaccount'] = \
+        if SocialAccount.objects.filter(user=kwargs['instance']).count() > 0:
+            self.fields['socialaccount'] = \
                      SocAccountChoiceField(
                         label=_('Preferred social account'),
                         required=False,

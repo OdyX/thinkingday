@@ -16,4 +16,18 @@ class UserProfile(models.Model):
     class Meta:
         db_table = 'user_profile'
 
+
+def user_scoutname(self):
+    if self.profile.scoutname:
+        return self.scoutname
+
+    elif self.first_name and self.last_name:
+        return u'{first_name} {last_name}'.format(
+            first_name=self.first_name,
+            last_name=self.last_name
+            )
+    else:
+        return self.username
+
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+User.__unicode__ = user_scoutname
