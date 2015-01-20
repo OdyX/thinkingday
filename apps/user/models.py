@@ -7,7 +7,6 @@ from allauth.socialaccount.models import SocialAccount
 class UserProfile(models.Model):
     user = models.OneToOneField(User, related_name='profile')
     socialaccount = models.ForeignKey(SocialAccount,
-        related_name='profile',
         blank=True, null=True, unique=True)
     scoutname = models.CharField(max_length=512, blank=True, null=True)
 
