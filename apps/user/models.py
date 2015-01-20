@@ -11,7 +11,7 @@ class UserProfile(models.Model):
     scoutname = models.CharField(max_length=512, blank=True, null=True)
 
     def __unicode__(self):
-        return "{}'s profile".format(self.user.username)
+        return "{}'s profile".format(self.user_scoutname())
 
     class Meta:
         db_table = 'user_profile'
