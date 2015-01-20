@@ -41,7 +41,7 @@
         iconFeatures.push(iconFeature);
     }
 
-    $.ajax("{% url 'apps.event.query.messages' %}")
+    $.ajax("{% url 'apps.event.views.messages' event_codename=event.codename %}")
     .done(function(result) {
         var objects = null;
         try {

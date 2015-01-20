@@ -2,6 +2,7 @@ from django.conf import settings
 from hvad.models import TranslatableModel, TranslatedFields
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.gis.db import models
+from django.core.exceptions import PermissionDenied
 
 
 class Event(TranslatableModel, models.Model):
@@ -40,3 +41,10 @@ class EventMark(models.Model):
             y=self.point.y,
             event=self.event.codename,
             )
+
+
+def get_event_by_codename(event_codename):
+    try:
+        return Event.objects.get(codename=event_codename)
+    except:
+        raise PermissionDenied()

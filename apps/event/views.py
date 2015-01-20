@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render  # , redirect
-from apps.event.models import Event
-from django.core.exceptions import PermissionDenied
+from django.shortcuts import render
+from apps.event.models import get_event_by_codename
 
 
 def map(request, event_codename):
-    try:
-        event = Event.objects.get(codename=event_codename)
-    except:
-        raise PermissionDenied()
-
     return render(request, 'map.html', {
-            'event': event,
+            'event': get_event_by_codename(event_codename),
             })
+
+
+def messages(request, event_codename):
+    return render(request, 'map.html', {
+            'event': get_event_by_codename(event_codename),
+            })  # change to respond messages
