@@ -58,6 +58,8 @@ class ProfileForm(forms.ModelForm):
                         label=_('Preferred social account'),
                         required=False,
                         user=kwargs['instance'])
+        else:
+            del self.fields['socialaccount']
 
     class Meta:
         model = User

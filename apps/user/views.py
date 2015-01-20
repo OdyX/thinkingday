@@ -24,7 +24,8 @@ def profile(request):
             request.user = user
             profile, isnew = UserProfile.objects.get_or_create(user_id=user)
             profile.scoutname = profileform.cleaned_data['scoutname'].strip()
-            profile.socialaccount = profileform.cleaned_data['socialaccount']
+            if 'socialaccount' in profileform.cleaned_data:
+                profile.socialaccount = profileform.cleaned_data['socialaccount']
             profile.save()
     else:
         initials = {}

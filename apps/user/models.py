@@ -2,6 +2,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from allauth.socialaccount.models import SocialAccount
+from libravatar import libravatar_url
 
 
 class UserProfile(models.Model):
@@ -9,6 +10,12 @@ class UserProfile(models.Model):
     socialaccount = models.ForeignKey(SocialAccount,
         blank=True, null=True, unique=True)
     scoutname = models.CharField(max_length=512, blank=True, null=True)
+
+    def get_avatar_url(self, size=40):
+        if self.socialaccount:
+            return self.socialaccount.get_avatar_url()
+        else:
+            return libravatar_url(email=self.user.email, size=size)
 
     def __unicode__(self):
         return "{}'s profile".format(self.user)

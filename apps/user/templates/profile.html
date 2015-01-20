@@ -9,27 +9,25 @@
     {{ user.get_full_name }}
     </h3>
     <table>
+        <thead>
+          <th colspan="2">{% trans "Public profile" %}</th>
+        </thead>
         <tbody>
           <tr>
-              <th>{% trans "Public name" %}</th>
+              <th>{% trans "Name" %}</th>
               <td colspan="2">{{ user }}</td>
           </tr>
           <tr>
-              <th>{% trans "Email" %}</th>
-              {% if user.email %}
-                  <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-                  <td><a href="{% url 'account_email' %}">{% trans "Change email" %}</a></td>
-              {% else %}
-                  <td colspan="2"><a href="{% url 'account_email' %}">{% trans "Configure emails" %}</a></td>
-              {% endif %}
+              <th>{% trans "Avatar" %}</th>
+              <td colspan="2"><img class="socialaccount-avatar " src="{{ user.profile.get_avatar_url }}" /></td>
           </tr>
           <tr>
-              <th colspan="3">{% trans "Social accounts" %}</th>
+              <th colspan="3"><a href="{% url 'socialaccount_connections' %}">{% trans "Social accounts" %}</a></th>
           </tr>
           {% if socaccounts %}
               {% for s in socaccounts %}
-                <tr>
-                  <td>{{ s.provider|title }}</td>
+                <tr {% if s.provider == user.profile.socialaccount.provider %}class="preferred"{% endif %}>
+                  <td>{% if s.provider == user.profile.socialaccount.provider %}√ {% endif %}{{ s.provider|title }}</td>
                   <td><img src="{{ s.get_avatar_url }}" class="socialaccount-avatar" /> <a href="{{ s.get_profile_url }}">{{ s.get_provider_account }}</a></td>
                 </tr>
               {% endfor %}
@@ -42,6 +40,23 @@
           {% endfor %}
         </tbody>
     </table>
+    <table>
+        <thead>
+          <th colspan="2">{% trans "Private profile" %}</th>
+        </thead>
+        <tbody>
+          <tr>
+              <th>{% trans "Email" %}</th>
+              {% if user.email %}
+                  <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                  <td><a href="{% url 'account_email' %}">{% trans "Change email" %}</a></td>
+              {% else %}
+                  <td colspan="2"><a href="{% url 'account_email' %}">{% trans "Configure emails" %}</a></td>
+              {% endif %}
+          </tr>
+        </tbody>
+    </table>
+
 {% endblock %}
 
 {% block rightbox %}
