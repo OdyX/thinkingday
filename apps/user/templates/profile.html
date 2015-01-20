@@ -4,25 +4,29 @@
 {% load socialaccount %}
 
 {% block leftbox %}
-    <h3 class="information-head">{{ user }}</h3>
+    <h3 class="information-head">
+    {% if user.profile.scoutname %}{{ user.profile.scoutname }} - {% endif %}
+    {{ user.get_full_name }}
+    </h3>
     <table>
         <tbody>
           <tr>
-              <th>{% trans "Fullname" %}</th>
-              <td>{{ user.get_full_name }}</td>
+              <th>{% trans "Public name" %}</th>
+              <td colspan="2">{{ user }}</td>
           </tr>
           <tr>
               <th>{% trans "Email" %}</th>
-              <td><a href="mailto: {{user.email}}">{{ user.email }}</a></td>
+              {% if user.email %}
+                  <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                  <td><a href="{% url 'account_email' %}">{% trans "Change email" %}</a></td>
+              {% else %}
+                  <td colspan="2"><a href="{% url 'account_email' %}">{% trans "Configure emails" %}</a></td>
+              {% endif %}
           </tr>
           <tr>
-              <th>{% trans "Avatar" %}</th>
-              <td><img src="{{ user.profile.profile_image_url }}" /></td>
+              <th colspan="3">{% trans "Social accounts" %}</th>
           </tr>
           {% if socaccounts %}
-              <tr>
-                  <th colspan="2">{% trans "Social accounts" %}</th>
-              </tr>
               {% for s in socaccounts %}
                 <tr>
                   <td>{{ s.provider|title }}</td>
@@ -30,6 +34,12 @@
                 </tr>
               {% endfor %}
           {% endif %}
+          {% for p in socproviders %}
+              <tr>
+                <td></td>
+                <td><a href="{% provider_login_url p.provider process="connect" %}">{% blocktrans %}Connect a {{ p }} account{% endblocktrans %}</a></td>
+              </tr>
+          {% endfor %}
         </tbody>
     </table>
 {% endblock %}

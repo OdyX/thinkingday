@@ -11,7 +11,7 @@ class UserProfile(models.Model):
     scoutname = models.CharField(max_length=512, blank=True, null=True)
 
     def __unicode__(self):
-        return "{}'s profile".format(self.user_scoutname())
+        return "{}'s profile".format(self.user)
 
     class Meta:
         db_table = 'user_profile'
@@ -20,11 +20,8 @@ class UserProfile(models.Model):
 def user_scoutname(self):
     if self.profile.scoutname:
         return self.profile.scoutname
-    elif self.first_name and self.last_name:
-        return u'{first_name} {last_name}'.format(
-            first_name=self.first_name,
-            last_name=self.last_name
-            )
+    elif self.get_full_name():
+        return self.get_full_name()
     else:
         return self.username
 

@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from allauth.socialaccount.models import SocialAccount
+from allauth.socialaccount.models import SocialAccount, SocialApp
 from .forms import ProfileForm
 from .models import UserProfile
 
@@ -10,6 +10,9 @@ from .models import UserProfile
 @login_required
 def profile(request):
     socaccounts = SocialAccount.objects.filter(user_id=request.user.id)
+    # Only propose to add social accounts for providers not already in use
+    socproviders = SocialApp.objects.\
+        exclude(provider__in=[s.provider for s in socaccounts])
 
     if request.method == 'POST':
         profileform = ProfileForm(request.POST, instance=request.user)
@@ -20,7 +23,7 @@ def profile(request):
             user.save()
             request.user = user
             profile, isnew = UserProfile.objects.get_or_create(user_id=user)
-            profile.scoutname = profileform.cleaned_data['scoutname']
+            profile.scoutname = profileform.cleaned_data['scoutname'].strip()
             profile.socialaccount = profileform.cleaned_data['socialaccount']
             profile.save()
     else:
@@ -34,5 +37,6 @@ def profile(request):
 
     return render(request, 'profile.html', {
         'socaccounts': socaccounts,
+        'socproviders': socproviders,
         'profileform': profileform,
         })
