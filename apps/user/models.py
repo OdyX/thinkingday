@@ -19,7 +19,7 @@ class UserProfile(models.Model):
 
 def user_scoutname(self):
     if self.profile.scoutname:
-        return self.scoutname
+        return self.profile.scoutname
 
     elif self.first_name and self.last_name:
         return u'{first_name} {last_name}'.format(
