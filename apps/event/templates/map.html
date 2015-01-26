@@ -61,8 +61,6 @@
     /**
      * Elements that make up the popup.
      */
-    var container = document.getElementById('popup');
-    //var content = document.getElementById('popup-content');
     var content = document.getElementById('messages-content');
 
     /**
@@ -91,28 +89,6 @@
         })
     });
 
-    var cursorHoverStyle = "pointer";
-    var target = map.getTarget();
-
-    //target returned might be the DOM element or the ID of this element dependeing on how the map was initialized
-    //either way get a jQuery object for it
-    var jTarget = typeof target === "string" ? $("#"+target) : $(target);
-
-    map.on("pointermove", function (event) {
-        var mouseCoordInMapPixels = [event.originalEvent.offsetX, event.originalEvent.offsetY];
-
-        //detect feature at mouse coords
-        var hit = map.forEachFeatureAtPixel(mouseCoordInMapPixels, function (feature, layer) {
-            return true;
-        });
-
-        if (hit) {
-            jTarget.css("cursor", cursorHoverStyle);
-        } else {
-            jTarget.css("cursor", "");
-        }
-    });
-
     // display popup on click
     map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
@@ -120,14 +96,8 @@
                 return feature;
             });
         if (feature) {
-            //var geometry = feature.getGeometry();
-            //var coord = geometry.getCoordinates();
-            //popupOverlay.setPosition(coord);
             content.innerHTML = feature.get('content');
-            //container.style.display = 'block';
-        } //else {
-            //container.style.display = 'none';
-        //}
+        }
     });
 
 </script>
@@ -142,11 +112,7 @@
 <h1>{{ event.name }}</h1>
 <div class="pure-g">
     <div class="pure-u-1 pure-u-md-4-5">
-        <div id="map" class="map">
-            <div id="popup" class="ol-popup" style="position: absolute; bottom: 60px; width: 100px; left: -50px; background: white;">
-                <div id="popup-content"></div>
-            </div>
-        </div>
+        <div id="map" class="map"></div>
     </div>
     <div class="pure-u-1 pure-u-md-1-5">
         <div class="l-box">
