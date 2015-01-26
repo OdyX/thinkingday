@@ -1,5 +1,6 @@
 Django>=1.7,<1.8
 dj-database-url>=0.3
+psycopg2>=2.5.4
 django-compressor>=1.4
 django-allauth>=0.19
 html5lib>=0.999

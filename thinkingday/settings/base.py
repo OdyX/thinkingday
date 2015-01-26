@@ -117,7 +117,7 @@ WSGI_APPLICATION = 'thinkingday.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse(get_env_variable('DATABASE_URL')),
 }
-DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.spatialite'
+DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/

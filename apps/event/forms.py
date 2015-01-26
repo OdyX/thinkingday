@@ -3,9 +3,8 @@ from django.contrib.gis import forms
 
 
 class TDOSMWidget(forms.OSMWidget):
-    template_name = 'TDOSMwidget.html'
-    display_raw = False
-    map_height = 600
+    def __init__(self, *args, **kwargs):
+        super(TDOSMWidget, self).__init__(*args, **kwargs)
 
     class Media:
         # Override to use cloudflare's JS CDN
