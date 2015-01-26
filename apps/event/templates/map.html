@@ -41,14 +41,14 @@
         iconFeatures.push(iconFeature);
     }
 
-    $.ajax("{% url 'apps.event.views.messages' event_codename=event.codename %}")
+    $.ajax("{% url 'points' event_codename=event.codename %}")
     .done(function(result) {
         var objects = null;
         try {
             var objects = $.parseJSON(result);
         } catch (e) {}
-        if (objects)
-            $.each(objects, function(item, value) {
+        if (objects.data)
+            $.each(objects.data, function(item, value) {
                 addIcon(value);
             });
     });
