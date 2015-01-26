@@ -47,15 +47,17 @@
         })
     });
 
-    $.ajax({
-        url: "{% url 'points' event_codename=event.codename %}",
-        async: false
-    }).done(function(result) {
-        if (result)
-            $.each(result.data, function(item, value) {
-                addIcon(value);
-            });
-    });
+    function getPoints() {
+        $.ajax({
+            url: "{% url 'points' event_codename=event.codename %}",
+            async: false
+        }).done(function(result) {
+            if (result)
+                $.each(result.data, function(item, value) {
+                    addIcon(value);
+                });
+        });
+    }
 
     /**
      * Elements that make up the popup.
@@ -103,6 +105,13 @@
             container.style.display = 'block';
         } else {
             container.style.display = 'none';
+        }
+    });
+
+    messagesLayer.on('change', function (evt) {
+        var src = evt.target;
+        if (src.getState() === 'ready') {
+            getPoints();
         }
     });
 
