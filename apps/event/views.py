@@ -3,7 +3,9 @@ import json
 from django.http import HttpResponse
 from django.utils import timezone
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import get_event_by_codename, EventMark
+from .forms import AddEventMarkForm
 
 
 def map(request, event_codename=None):
@@ -16,8 +18,19 @@ def map(request, event_codename=None):
     elif dt_now > event.end:
         assert False, 'event\'s over'
 
+    if request.method == 'POST':
+        aemform = AddEventMarkForm(request.POST, event=event)
+        if aemform.is_valid():
+            em = EventMark()
+            em.event = event
+            em.point = aemform.cleaned_data['point']
+            em.save()
+            # TODO: Do someting smart with that new point
+    aemform = AddEventMarkForm(event=event)
+
     return render(request, 'map.html', {
             'event': event,
+            'aemform': aemform,
             })
 
 

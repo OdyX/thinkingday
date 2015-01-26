@@ -26,7 +26,7 @@ class Event(TranslatableModel, models.Model):
 
 class EventMark(models.Model):
     event = models.ForeignKey(Event, related_name="marks")
-    created = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
 
     point = models.PointField()
     objects = models.GeoManager()

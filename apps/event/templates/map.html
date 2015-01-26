@@ -11,6 +11,7 @@
                 width: 100%;
               }
             </style>
+{{ aemform.media }}
 {% endblock %}
 
 {% block remote_scripts %}
@@ -132,4 +133,10 @@
         </div>
     </div>
 </div>
+
+<form method="post" action="{% url 'map' event_codename=event.codename %}">
+    {% csrf_token %}
+    {{ aemform }}
+    <input type="submit" value="{% trans "Add Mark" %}" />
+</form>
 {% endblock %}
