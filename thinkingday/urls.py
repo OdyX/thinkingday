@@ -15,6 +15,6 @@ urlpatterns = patterns(
 
 urlpatterns += i18n_patterns('',
     url(r'^$', 'thinkingday.views.home', name='home'),
-    url(r'^thanks/', 'thinkingday.views.thanks', name='thanks'),
-    url(r'^(?P<event_codename>[^/]?)/', include('apps.event.urls')),
+    url(r'^thanks/$', 'thinkingday.views.thanks', name='thanks'),
+    url(r'^(?P<event_codename>\w+)/', include('apps.event.urls')),
 )

@@ -45,6 +45,11 @@ class EventMark(models.Model):
 
 def get_event_by_codename(event_codename):
     try:
-        return Event.objects.get(codename=event_codename)
+        # On-purpose fallback for incomplete translation DB-wise
+        return Event.objects\
+                .untranslated()\
+                .use_fallbacks()\
+                .get(codename=event_codename)
     except:
+        # TODO: Better error handling
         raise PermissionDenied()
