@@ -1,5 +1,6 @@
-from django.conf import settings
+# -*- coding: utf-8 -*-
 from hvad.models import TranslatableModel, TranslatedFields
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.gis.db import models
 from django.core.exceptions import PermissionDenied
@@ -27,6 +28,7 @@ class Event(TranslatableModel, models.Model):
 class EventMark(models.Model):
     event = models.ForeignKey(Event, related_name="marks")
     created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, related_name='marks')
 
     point = models.PointField()
     objects = models.GeoManager()
