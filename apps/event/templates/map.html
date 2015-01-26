@@ -91,6 +91,19 @@
         })
     });
 
+    // change mouse cursor when over marker
+    $(map.getViewport()).on('mousemove', function(e) {
+        var pixel = map.getEventPixel(e.originalEvent);
+        var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+            return true;
+        });
+        if (hit) {
+            map.getTarget().style.cursor = 'pointer';
+        } else {
+            map.getTarget().style.cursor = '';
+        }
+    });
+
     // display popup on click
     map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
@@ -98,14 +111,14 @@
                 return feature;
             });
         if (feature) {
-            var geometry = feature.getGeometry();
-            var coord = geometry.getCoordinates();
-            popupOverlay.setPosition(coord);
+            //var geometry = feature.getGeometry();
+            //var coord = geometry.getCoordinates();
+            //popupOverlay.setPosition(coord);
             content.innerHTML = feature.get('content');
             //container.style.display = 'block';
-        } else {
+        } //else {
             //container.style.display = 'none';
-        }
+        //}
     });
 
 </script>
