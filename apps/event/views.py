@@ -3,7 +3,7 @@ import json
 from django.http import HttpResponse
 from django.utils import timezone
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.views.decorators.cache import never_cache
 from .models import get_event_by_codename, EventMark
 from .forms import AddEventMarkForm
 
@@ -34,6 +34,7 @@ def map(request, event_codename=None):
             })
 
 
+@never_cache
 def messages(request, event_codename=None):
     event = get_event_by_codename(event_codename)
     marks = EventMark.objects.filter(event=event)
