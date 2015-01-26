@@ -44,11 +44,11 @@
     $.ajax("{% url 'points' event_codename=event.codename %}")
     .done(function(result) {
         var objects = null;
-        try {
-            var objects = $.parseJSON(result);
-        } catch (e) {}
-        if (objects.data)
-            $.each(objects.data, function(item, value) {
+        //try {
+            //var objects = $.parseJSON(result);
+        //} catch (e) {}
+        if (result)
+            $.each(result.data, function(item, value) {
                 addIcon(value);
             });
     });
