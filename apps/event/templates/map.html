@@ -73,10 +73,10 @@
         iconFeatures.push(iconFeature);
     }
 
-    $.ajax(
+    $.ajax({
         url: "{% url 'points' event_codename=event.codename %}",
         async: false
-    ).done(function(result) {
+    }).done(function(result) {
         if (result)
             $.each(result.data, function(item, value) {
                 addIcon(value);
