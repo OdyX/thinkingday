@@ -6,6 +6,7 @@
     <p>
         {{ event.description|safe }}
     </p>
+    <div><a href="{% url 'map' event_codename=event.codename %}">{{ event.codename }}</a></div>
 {% endblock %}
 
 {% block rightbox %}
