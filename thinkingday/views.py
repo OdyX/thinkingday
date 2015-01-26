@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render  # , redirect
+from django.shortcuts import render
 from apps.user.forms import EmailOnlyForm
 from apps.event.models import Event
 

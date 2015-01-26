@@ -18,12 +18,13 @@ def map(request, event_codename=None):
     elif dt_now > event.end:
         assert False, 'event\'s over'
 
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated():
         aemform = AddEventMarkForm(request.POST, event=event)
         if aemform.is_valid():
             em = EventMark()
             em.event = event
             em.point = aemform.cleaned_data['point']
+            em.user = request.user
             em.save()
             # TODO: Do someting smart with that new point
     aemform = AddEventMarkForm(event=event)
