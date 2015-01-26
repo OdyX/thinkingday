@@ -49,18 +49,12 @@
 
     $.ajax({
         url: "{% url 'points' event_codename=event.codename %}",
-        async: false
+        async: true
     }).done(function(result) {
         if (result)
             $.each(result.data, function(item, value) {
                 addIcon(value);
             });
-    });
-
-    addIcon({
-        x: 6.8,
-        y: 46.6,
-        id: 1012
     });
 
     /**
