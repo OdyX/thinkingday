@@ -47,6 +47,16 @@
         })
     });
 
+    $.ajax({
+        url: "{% url 'points' event_codename=event.codename %}",
+        async: false
+    }).done(function(result) {
+        if (result)
+            $.each(result.data, function(item, value) {
+                addIcon(value);
+            });
+    });
+
     /**
      * Elements that make up the popup.
      */
@@ -94,18 +104,6 @@
         } else {
             container.style.display = 'none';
         }
-    });
-
-    $(document).ready(function () {
-        $.ajax({
-            url: "{% url 'points' event_codename=event.codename %}",
-            async: false
-        }).done(function(result) {
-            if (result)
-                $.each(result.data, function(item, value) {
-                    addIcon(value);
-                });
-        });
     });
 
 </script>
