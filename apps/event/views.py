@@ -24,12 +24,16 @@ def map(request, event_codename=None):
 def messages(request, event_codename=None):
     event = get_event_by_codename(event_codename)
     marks = EventMark.objects.filter(event=event)
-    all_marks = []
-    # Serialize the points for that event
-    for mark in marks:
-        that_mark = {}
-        that_mark['id'] = mark.id
-        that_mark['x'] = mark.point.x
-        that_mark['y'] = mark.point.y
-        all_marks.append(that_mark)
+    all_marks = {}
+    if marks.count() > 0:
+        all_marks['srid'] = marks[0].point.srid
+        all_marks['data'] = []
+        # Serialize the points for that event
+        for mark in marks:
+            that_mark = {}
+            that_mark['id'] = mark.id
+            that_mark['x'] = mark.point.x
+            that_mark['y'] = mark.point.y
+            all_marks['data'].append(that_mark)
+
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
