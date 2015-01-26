@@ -47,17 +47,15 @@
         })
     });
 
-    function getPoints() {
-        $.ajax({
-            url: "{% url 'points' event_codename=event.codename %}",
-            async: false
-        }).done(function(result) {
-            if (result)
-                $.each(result.data, function(item, value) {
-                    addIcon(value);
-                });
-        });
-    }
+    $.ajax({
+        url: "{% url 'points' event_codename=event.codename %}",
+        async: false
+    }).done(function(result) {
+        if (result)
+            $.each(result.data, function(item, value) {
+                addIcon(value);
+            });
+    });
 
     /**
      * Elements that make up the popup.
@@ -79,7 +77,8 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM()
-            })
+            }),
+            messagesLayer
         ],
         overlays: [popupOverlay],
         view: new ol.View({
@@ -104,15 +103,6 @@
             container.style.display = 'block';
         } else {
             container.style.display = 'none';
-        }
-    });
-
-    map.addLayer(messagesLayer);
-
-    messagesLayer.on('change', function (evt) {
-        var src = evt.target;
-        if (src.getState() === 'ready') {
-            getPoints();
         }
     });
 
