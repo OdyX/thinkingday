@@ -19,8 +19,8 @@
 <script src="{{ "//openlayers.org/en/"|resource_remotelocal:"openlayers/" }}v3.1.1/build/ol.js" type="text/javascript"></script>
 {% endblock %}
 {% block local_scripts %}
-<script type="text/javascript">
 
+<script type="text/javascript">
     var iconStyle = new ol.style.Style({
         image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
             anchor: [0.5, 46],
@@ -36,28 +36,26 @@
     function addIcon(message) {
         var iconFeature = new ol.Feature({
             geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
-            //name: message.content
+            content: message.id
         });
         iconFeature.setStyle(iconStyle);
         iconFeatures.push(iconFeature);
     }
 
-    $.ajax("{% url 'points' event_codename=event.codename %}")
-    .done(function(result) {
-        var objects = null;
-        //try {
-            //var objects = $.parseJSON(result);
-        //} catch (e) {}
-        if (result)
-            $.each(result.data, function(item, value) {
-                addIcon(value);
-            });
-    });
-
     var messagesLayer = new ol.layer.Vector({
         source: new ol.source.Vector({
             features: iconFeatures
         })
+    });
+
+    $.ajax({
+        url: "{% url 'points' event_codename=event.codename %}",
+        async: true
+    }).done(function(result) {
+        if (result)
+            $.each(result.data, function(item, value) {
+                addIcon(value);
+            });
     });
 
     /**
@@ -98,16 +96,17 @@
             function(feature, layer) {
                 return feature;
             });
-            if (feature) {
-                var geometry = feature.getGeometry();
-                var coord = geometry.getCoordinates();
-                popupOverlay.setPosition(coord);
-                //content.innerHTML = feature.get('name');
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
+        if (feature) {
+            var geometry = feature.getGeometry();
+            var coord = geometry.getCoordinates();
+            popupOverlay.setPosition(coord);
+            content.innerHTML = feature.get('content');
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'none';
+        }
     });
+
 </script>
 {% endblock %}
 
