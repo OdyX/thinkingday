@@ -96,7 +96,7 @@
         }
     });
 
-    map.on('loadend', function(evt) {
+    messagesLayer.events.register("loadend", messagesLayer, function() {
         $.ajax({
             url: "{% url 'points' event_codename=event.codename %}",
             async: false
