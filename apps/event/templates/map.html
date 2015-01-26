@@ -35,7 +35,7 @@
     function addIcon(message) {
         var iconFeature = new ol.Feature({
             geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
-            name: message.content
+            //name: message.content
         });
         iconFeature.setStyle(iconStyle);
         iconFeatures.push(iconFeature);
@@ -101,7 +101,7 @@
                 var geometry = feature.getGeometry();
                 var coord = geometry.getCoordinates();
                 popupOverlay.setPosition(coord);
-                content.innerHTML = feature.get('name');
+                //content.innerHTML = feature.get('name');
                 container.style.display = 'block';
             } else {
                 container.style.display = 'none';
