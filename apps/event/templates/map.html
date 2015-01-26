@@ -62,7 +62,8 @@
      * Elements that make up the popup.
      */
     var container = document.getElementById('popup');
-    var content = document.getElementById('popup-content');
+    //var content = document.getElementById('popup-content');
+    var content = document.getElementById('messages-content');
 
     /**
      * Create an overlay to anchor the popup to the map.
@@ -101,9 +102,9 @@
             var coord = geometry.getCoordinates();
             popupOverlay.setPosition(coord);
             content.innerHTML = feature.get('content');
-            container.style.display = 'block';
+            //container.style.display = 'block';
         } else {
-            container.style.display = 'none';
+            //container.style.display = 'none';
         }
     });
 
@@ -129,6 +130,7 @@
         <div class="l-box">
             <h3>{{ event.name }}</h3>
             <h3 class="information-head">{% trans "Leave a message" %}</h3>
+            <div id="messages-content"></div>
         </div>
     </div>
 </div>
