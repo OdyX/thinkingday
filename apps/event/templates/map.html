@@ -96,7 +96,7 @@
         }
     });
 
-    $.ready(function() {
+    $(document).ready(function () {
         $.ajax({
             url: "{% url 'points' event_codename=event.codename %}",
             async: false
