@@ -29,8 +29,7 @@
             anchorYUnits: 'pixels',
             opacity: 1,
             src: '{% static "img/marker.png" %}'
-        })),
-        cursor: 'pointer'
+        }))
     });
 
     var iconFeatures = [];
@@ -88,6 +87,19 @@
             });
         if (feature) {
             content.innerHTML = feature.get('content');
+        }
+    });
+
+    // change mouse cursor when over marker
+    $(map.getViewport()).on('mousemove', function(e) {
+        var pixel = map.getEventPixel(e.originalEvent);
+        var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
+            return true;
+        });
+        if (hit) {
+            map.getTarget().style.cursor = 'pointer';
+        } else {
+            map.getTarget().style.cursor = '';
         }
     });
 
