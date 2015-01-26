@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
+import json
+from django.http import HttpResponse
 from django.utils import timezone
 from django.shortcuts import render
-from apps.event.models import get_event_by_codename
+from .models import get_event_by_codename, EventMark
 
 
 def map(request, event_codename=None):
@@ -20,6 +22,18 @@ def map(request, event_codename=None):
 
 
 def messages(request, event_codename=None):
-    return render(request, 'map.html', {
-            'event': get_event_by_codename(event_codename),
-            })  # change to respond messages
+    event = get_event_by_codename(event_codename)
+    marks = EventMark.objects.filter(event=event)
+    all_marks = {}
+    if marks.count() > 0:
+        all_marks['srid'] = marks[0].point.srid
+        all_marks['data'] = []
+        # Serialize the points for that event
+        for mark in marks:
+            that_mark = {}
+            that_mark['id'] = mark.id
+            that_mark['x'] = mark.point.x
+            that_mark['y'] = mark.point.y
+            all_marks['data'].append(that_mark)
+
+    return HttpResponse(json.dumps(all_marks), content_type="application/json")
