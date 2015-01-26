@@ -92,14 +92,15 @@
 
     // change mouse cursor when over marker
     $(map.getViewport()).on('mousemove', function(e) {
+        var target = document.getElementById(map.getTarget());
         var pixel = map.getEventPixel(e.originalEvent);
         var hit = map.forEachFeatureAtPixel(pixel, function(feature, layer) {
             return true;
         });
         if (hit) {
-            map.getTarget().style.cursor = 'pointer';
+            target.style.cursor = 'pointer';
         } else {
-            map.getTarget().style.cursor = '';
+            target.style.cursor = '';
         }
     });
 
