@@ -28,7 +28,7 @@
               {% for s in socaccounts %}
                 <tr {% if s.provider == user.profile.socialaccount.provider %}class="preferred"{% endif %}>
                   <td>{% if s.provider == user.profile.socialaccount.provider %}√ {% endif %}{{ s.provider|title }}</td>
-                  <td><img src="{{ s.get_avatar_url }}" class="socialaccount-avatar" /> <a href="{{ s.get_profile_url }}">{{ s.get_provider_account }}</a></td>
+                  <td><img src="{{ s.get_avatar_url }}" /> <a href="{{ s.get_profile_url }}">{{ s.get_provider_account }}</a></td>
                 </tr>
               {% endfor %}
           {% endif %}

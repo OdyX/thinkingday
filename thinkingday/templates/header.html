@@ -5,10 +5,18 @@
         <div>
             <a id="homelink" href="{% url 'home' %}" title="{% trans "Homepage" %}">{% trans "Swiss scouts" %}</a>
         </div>
+        <div class="pure-menu pure-menu-open pure-menu-horizontal">
+            <ul class="right">
+                <li>
+                    <a href="{% url 'account_login' %}">{% trans "Login" %}</a>
+                </li>
+            </ul>
+            <div style="clear: right;"></div>
+        </div>
     {% else %}
         <div class="pure-menu pure-menu-open pure-menu-horizontal">
             <ul>
-                <li {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Homepage" %}</a></li>
+                <li id="homelink" {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Homepage" %}</a></li>
                 {% if user.is_superuser %}
                     <li><a href="{% url 'admin:index' %}">{% trans "Administration" %}</a></li>
                 {% endif %}
