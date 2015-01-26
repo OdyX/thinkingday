@@ -30,6 +30,6 @@ def messages(request, event_codename=None):
         that_mark = {}
         that_mark['id'] = mark.id
         that_mark['x'] = mark.point.x
-        that_mark['y'] = mark.point.x
+        that_mark['y'] = mark.point.y
         all_marks.append(that_mark)
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
