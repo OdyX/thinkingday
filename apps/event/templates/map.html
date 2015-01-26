@@ -20,45 +20,6 @@
 {% block local_scripts %}
 <script type="text/javascript">
 
-    var iconStyle = new ol.style.Style({
-        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-            anchor: [0.5, 46],
-            anchorXUnits: 'fraction',
-            anchorYUnits: 'pixels',
-            opacity: 0.75,
-            src: 'http://openlayers.org/en/v3.1.1/examples/data/icon.png'
-        }))
-    });
-
-    var iconFeatures = [];
-
-    function addIcon(message) {
-        var iconFeature = new ol.Feature({
-            geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
-            //name: message.content
-        });
-        iconFeature.setStyle(iconStyle);
-        iconFeatures.push(iconFeature);
-    }
-
-    $.ajax("{% url 'points' event_codename=event.codename %}")
-    .done(function(result) {
-        var objects = null;
-        //try {
-            //var objects = $.parseJSON(result);
-        //} catch (e) {}
-        if (result)
-            $.each(result.data, function(item, value) {
-                addIcon(value);
-            });
-    });
-
-    var messagesLayer = new ol.layer.Vector({
-        source: new ol.source.Vector({
-            features: iconFeatures
-        })
-    });
-
     /**
      * Elements that make up the popup.
      */
@@ -91,6 +52,43 @@
         })
     });
 
+    var iconStyle = new ol.style.Style({
+        image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+            anchor: [0.5, 46],
+            anchorXUnits: 'fraction',
+            anchorYUnits: 'pixels',
+            opacity: 0.75,
+            src: 'http://openlayers.org/en/v3.1.1/examples/data/icon.png'
+        }))
+    });
+
+    var iconFeatures = [];
+
+    function addIcon(message) {
+        var iconFeature = new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
+            content: message.id
+        });
+        iconFeature.setStyle(iconStyle);
+        iconFeatures.push(iconFeature);
+    }
+
+    $.ajax(
+        url: "{% url 'points' event_codename=event.codename %}",
+        async: false
+    ).done(function(result) {
+        if (result)
+            $.each(result.data, function(item, value) {
+                addIcon(value);
+            });
+    });
+
+    var messagesLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: iconFeatures
+        })
+    });
+
     // display popup on click
     map.on('click', function(evt) {
         var feature = map.forEachFeatureAtPixel(evt.pixel,
@@ -101,7 +99,7 @@
                 var geometry = feature.getGeometry();
                 var coord = geometry.getCoordinates();
                 popupOverlay.setPosition(coord);
-                //content.innerHTML = feature.get('name');
+                content.innerHTML = feature.get('content');
                 container.style.display = 'block';
             } else {
                 container.style.display = 'none';
