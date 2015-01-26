@@ -47,7 +47,7 @@
         try {
             var objects = $.parseJSON(result);
         } catch (e) {}
-        if (objects.data)
+        if (objects)
             $.each(objects.data, function(item, value) {
                 addIcon(value);
             });
