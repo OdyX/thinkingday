@@ -67,8 +67,8 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM()
-            }),
-            messagesLayer
+            })
+            //messagesLayer
         ],
         overlays: [popupOverlay],
         view: new ol.View({
@@ -107,6 +107,8 @@
                 });
         });
     });
+
+    map.addLayer(messagesLayer);
 
 </script>
 {% endblock %}
