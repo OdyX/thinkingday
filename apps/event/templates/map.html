@@ -62,50 +62,50 @@
         stopEvent: false
     });
 
-    $.ready(function () {
-        var map = new ol.Map({
-            target: 'map',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM()
-                }),
-                messagesLayer
-            ],
-            overlays: [popupOverlay],
-            view: new ol.View({
-                center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
-                zoom: 8,
-                minZoom: 8,
-                maxZoom: 17
-            })
-        });
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }),
+            messagesLayer
+        ],
+        overlays: [popupOverlay],
+        view: new ol.View({
+            center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
+            zoom: 8,
+            minZoom: 8,
+            maxZoom: 17
+        })
+    });
 
+    // display popup on click
+    map.on('click', function(evt) {
+        var feature = map.forEachFeatureAtPixel(evt.pixel,
+            function(feature, layer) {
+                return feature;
+            });
+        if (feature) {
+            var geometry = feature.getGeometry();
+            var coord = geometry.getCoordinates();
+            popupOverlay.setPosition(coord);
+            content.innerHTML = feature.get('content');
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'none';
+        }
+    });
+
+    $.ready(function () {
         $.ajax({
-        url: "{% url 'points' event_codename=event.codename %}",
-        async: false
+            url: "{% url 'points' event_codename=event.codename %}",
+            async: false
         }).done(function(result) {
             if (result)
                 $.each(result.data, function(item, value) {
                     addIcon(value);
                 });
         });
-
-        // display popup on click
-        //map.on('click', function(evt) {
-            //var feature = map.forEachFeatureAtPixel(evt.pixel,
-                //function(feature, layer) {
-                    //return feature;
-                //});
-            //if (feature) {
-                //var geometry = feature.getGeometry();
-                //var coord = geometry.getCoordinates();
-                //popupOverlay.setPosition(coord);
-                //content.innerHTML = feature.get('content');
-                //container.style.display = 'block';
-            //} else {
-                //container.style.display = 'none';
-            //}
-        //});
     });
 </script>
 {% endblock %}
