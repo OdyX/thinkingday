@@ -79,8 +79,7 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM()
-            }),
-            messagesLayer
+            })
         ],
         overlays: [popupOverlay],
         view: new ol.View({
@@ -107,6 +106,8 @@
             container.style.display = 'none';
         }
     });
+
+    map.addLayer(messagesLayer);
 
     messagesLayer.on('change', function (evt) {
         var src = evt.target;
