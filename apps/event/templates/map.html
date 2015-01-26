@@ -67,8 +67,8 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM()
-            })
-            //messagesLayer
+            }),
+            messagesLayer
         ],
         overlays: [popupOverlay],
         view: new ol.View({
@@ -96,7 +96,7 @@
         }
     });
 
-    messagesLayer.events.register("loadend", messagesLayer, function() {
+    $.ready(function() {
         $.ajax({
             url: "{% url 'points' event_codename=event.codename %}",
             async: false
@@ -107,8 +107,6 @@
                 });
         });
     });
-
-    map.addLayer(messagesLayer);
 
 </script>
 {% endblock %}
