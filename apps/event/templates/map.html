@@ -41,6 +41,7 @@
             geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
             content: message.id
         });
+        iconFeature.setStyle(iconStyle);
         messagesSource.addFeature(iconFeature);
     }
 
@@ -55,8 +56,7 @@
     });
 
     var messagesLayer = new ol.layer.Vector({
-        source: messagesSource,
-        style: iconStyle
+        source: messagesSource
     });
 
     /**
