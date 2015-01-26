@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load td_filters %}
+
+{% block banner %}
+{# No banner #}
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>{{ event.name }}</h1>
+    <h3>{% blocktrans with event_name=event.name %}<q>{{event_name}}</q> has unfortunately not started yet!{% endblocktrans %}</h3>
+    <p>
+        {% blocktrans with event_date=event.start.date event_time=event.start.time|time:"G:i" %}
+            Please be patient and come back on {{event_date}} from {{event_time}} on!
+        {% endblocktrans %}
+    </p>
+</div>
+{% endblock %}
