@@ -91,21 +91,21 @@
         });
 
         // display popup on click
-        map.on('click', function(evt) {
-            var feature = map.forEachFeatureAtPixel(evt.pixel,
-                function(feature, layer) {
-                    return feature;
-                });
-                if (feature) {
-                    var geometry = feature.getGeometry();
-                    var coord = geometry.getCoordinates();
-                    popupOverlay.setPosition(coord);
-                    content.innerHTML = feature.get('content');
-                    container.style.display = 'block';
-                } else {
-                    container.style.display = 'none';
-                }
-        });
+        //map.on('click', function(evt) {
+            //var feature = map.forEachFeatureAtPixel(evt.pixel,
+                //function(feature, layer) {
+                    //return feature;
+                //});
+            //if (feature) {
+                //var geometry = feature.getGeometry();
+                //var coord = geometry.getCoordinates();
+                //popupOverlay.setPosition(coord);
+                //content.innerHTML = feature.get('content');
+                //container.style.display = 'block';
+            //} else {
+                //container.style.display = 'none';
+            //}
+        //});
     });
 </script>
 {% endblock %}
