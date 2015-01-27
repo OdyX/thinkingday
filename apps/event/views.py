@@ -60,7 +60,7 @@ def messages(request, event_codename=None, point_id=None):
 
     one_message = {}
     one_message['id'] = 0;
-    one_message['text'] = 'Message de test';
+    one_message['text'] = '{' + point_id + '}' + 'Message de test';
     all_messages['data'].append(one_message)
 
     # Just fo testing, to be removed
