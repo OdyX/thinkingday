@@ -1,19 +1,13 @@
 var iconStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        opacity: 1,
+        anchor: [0.5, 1],
         src: STATIC_URL + "/img/marker.png"
     }))
 });
 
 var iconTempStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-        anchor: [0.5, 46],
-        anchorXUnits: 'fraction',
-        anchorYUnits: 'pixels',
-        opacity: 1,
+        anchor: [0.5, 1],
         src: STATIC_URL + "/img/marker_temp.png"
     }))
 });
