@@ -63,7 +63,13 @@ map.on('click', function(evt) {
             return feature;
         });
     if (feature) {
-        content.innerHTML = feature.get('id');
+        var id = feature.get('id');
+        //content.innerHTML = feature.get('id');
+        $.ajax({
+            url: MESSAGES_URL.replace('#pointid#', id);
+        }).done(function (result) {
+            // DO NOTHING
+        });
     }
 });
 
