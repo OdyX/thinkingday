@@ -61,7 +61,8 @@ var map = new ol.Map({
     target: 'map',
     layers: [
         new ol.layer.Tile({
-            source: new ol.source.OSM()
+            source: new ol.source.OSM(),
+            extent: ol.proj.transformExtent([3, 45, 15, 49], 'EPSG:4326', 'EPSG:900913')
         }),
         messagesLayer,
         tempLayer
