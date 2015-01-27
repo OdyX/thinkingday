@@ -34,20 +34,7 @@ var messagesLayer = new ol.layer.Vector({
     style: iconStyle
 });
 
-var mousePositionControl = new ol.control.MousePosition({
-      coordinateFormat: ol.coordinate.createStringXY(4),
-      projection: 'EPSG:4326',
-      // comment the following two lines to have the mouse position
-      // be placed within the map.
-      //className: 'custom-mouse-position',
-      //target: document.getElementById('mouse-position'),
-      //undefinedHTML: '&nbsp;'
-});
-
 var map = new ol.Map({
-    controls: ol.control.defaults({
-        attributionOptions: /** @type {olx.control.AttributionOptions} */ ({})
-    }).extend([mousePositionControl]),
     target: 'map',
     layers: [
         new ol.layer.Tile({
@@ -63,8 +50,10 @@ var map = new ol.Map({
     })
 });
 
+var content = $('#messages-content');
+
 function addMessage(message) {
-    $('#messages-content').append('<p>' + message.text + '</p>');
+    content.append('<p>' + message.text + '</p>');
 }
 
 // display popup on click
@@ -80,6 +69,7 @@ map.on('click', function(event) {
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
             if (result)
+                content.empty();
                 $.each(result.data, function(item, value) {
                     addMessage(value);
                 });
@@ -88,7 +78,7 @@ map.on('click', function(event) {
         // Return click position to add a new point + message
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
-        alert('x: ' + coord[0] + ', y:' + coord[1]);
+        content.html('<p>x: ' + coord[0] + ', y:' + coord[1] + '</p>');
     }
 });
 
