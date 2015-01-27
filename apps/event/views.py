@@ -54,4 +54,12 @@ def points(request, event_codename=None):
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
 
 def messages(request, event_codename=None, point_id=None):
-    return HttpResponse(status=200)
+    all_messages = {}
+
+    one_message = {}
+    one_message['id'] = 0;
+    one_message['text'] = 'Message de test';
+
+    all_messages['data'].append(one_message)
+
+    return HttpResponse(json.dumps(all_messages), content_type="application/json")

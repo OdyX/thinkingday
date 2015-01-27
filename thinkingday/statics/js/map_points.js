@@ -1,4 +1,3 @@
-
 var iconStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
         anchor: [0.5, 46],
@@ -35,11 +34,6 @@ var messagesLayer = new ol.layer.Vector({
     style: iconStyle
 });
 
-/**
- * Elements that make up the popup.
- */
-var content = document.getElementById('messages-content');
-
 var map = new ol.Map({
     target: 'map',
     layers: [
@@ -56,6 +50,10 @@ var map = new ol.Map({
     })
 });
 
+function addMessage(message) {
+    $('#messages-content').append(message.text);
+}
+
 // display popup on click
 map.on('click', function(evt) {
     var feature = map.forEachFeatureAtPixel(evt.pixel,
@@ -64,11 +62,13 @@ map.on('click', function(evt) {
         });
     if (feature) {
         var id = feature.get('id');
-        //content.innerHTML = feature.get('id');
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
-            // DO NOTHING
+            if (result)
+                $.each(result.data, function(item, value) {
+                    addMessage(value);
+                });
         });
     }
 });
