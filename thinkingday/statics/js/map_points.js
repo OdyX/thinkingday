@@ -8,6 +8,16 @@ var iconStyle = new ol.style.Style({
     }))
 });
 
+var iconTempStyle = new ol.style.Style({
+    image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+        anchor: [0.5, 46],
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'pixels',
+        opacity: 1,
+        src: STATIC_URL + "/img/marker_temp.png"
+    }))
+});
+
 var iconFeatures = [];
 
 var messagesSource = new ol.source.Vector({});
@@ -45,7 +55,7 @@ function addTempIcon(point) {
 }
 
 var tempLayer = new ol.layer.Vector({
-    source: tempSource
+    source: iconTempStyle
 });
 
 var map = new ol.Map({
