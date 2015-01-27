@@ -1,6 +1,6 @@
 var iconStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-        anchor: [16, 29],
+        anchor: [16, 30],
         anchorXUnits: 'pixels',
         anchorYUnits: 'pixels',
         src: STATIC_URL + "/img/marker.png"
@@ -9,7 +9,7 @@ var iconStyle = new ol.style.Style({
 
 var iconTempStyle = new ol.style.Style({
     image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
-        anchor: [16, 29],
+        anchor: [16, 30],
         anchorXUnits: 'pixels',
         anchorYUnits: 'pixels',
         src: STATIC_URL + "/img/marker_temp.png"
