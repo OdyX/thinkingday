@@ -84,10 +84,10 @@ function addMessage(message) {
 map.on('click', function(event) {
     var feature = map.forEachFeatureAtPixel(event.pixel,
         function(feature, layer) {
-            return feature;
+            return {feature: feature, layout: layout};
         });
     // feature exist -> return messages
-    if (feature) {
+    if (feature.feature && JSON.stringify(feature.layout) === JSON.stringify(messagesLayer)) {
         var id = feature.get('id');
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
