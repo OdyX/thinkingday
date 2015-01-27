@@ -53,6 +53,7 @@ def points(request, event_codename=None):
 
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
 
+@never_cache
 def messages(request, event_codename=None, point_id=None):
     all_messages = {}
     all_messages['data'] = []
