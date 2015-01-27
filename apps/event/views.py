@@ -55,6 +55,7 @@ def points(request, event_codename=None):
 
 def messages(request, event_codename=None, point_id=None):
     all_messages = {}
+    all_messages['data'] = []
 
     one_message = {}
     one_message['id'] = 0;
