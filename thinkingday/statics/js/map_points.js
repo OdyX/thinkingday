@@ -36,17 +36,16 @@ var messagesLayer = new ol.layer.Vector({
 
 var tempSource = new ol.source.Vector({});
 
-function addTempIcon(obj) {
+function addTempIcon(point) {
     var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.transform([obj.x, obj.y], 'EPSG:4326', 'EPSG:900913')),
+        geometry: point,
     });
     tempSource.clear();
     tempSource.addFeature(iconFeature);
 }
 
 var tempLayer = new ol.layer.Vector({
-    source: tempSource,
-    style: iconStyle
+    source: tempSource
 });
 
 var map = new ol.Map({
@@ -95,10 +94,7 @@ map.on('click', function(event) {
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
         content.html('<p>x: ' + coord[0] + '<br>y: ' + coord[1] + '</p>');
-        addTempIcon({
-            x: coord[0],
-            y: coord[1]
-        });
+        addTempIcon(point);
     }
 });
 
