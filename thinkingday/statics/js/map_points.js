@@ -34,13 +34,28 @@ var messagesLayer = new ol.layer.Vector({
     style: iconStyle
 });
 
+var tempSource = new ol.source.Vector({});
+
+function addTempIcon(obj) {
+    var iconFeature = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.transform([obj.x, obj.y], 'EPSG:4326', 'EPSG:900913')),
+    });
+    tempSource.clear();
+    tempSource.addFeature(iconFeature);
+}
+
+var tempLayer = new ol.layer.Vector({
+    source: tempSource
+});
+
 var map = new ol.Map({
     target: 'map',
     layers: [
         new ol.layer.Tile({
             source: new ol.source.OSM()
         }),
-        messagesLayer
+        messagesLayer,
+        tempLayer
     ],
     view: new ol.View({
         center: ol.proj.transform([8.22669, 46.80121], 'EPSG:4326', 'EPSG:900913'),
