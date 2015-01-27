@@ -87,6 +87,7 @@ map.on('click', function(event) {
     } else {
         // Return click position to add a new point + message
         var point = new ol.geom.Point(event.coordinate);
+        var coord = ol.proj.transform(point.getGeometry().getCoordinates(), 'EPSG:900913', 'EPSG:4326');
         alert('x: ' + point[0] + ', y:' + point[1]);
     }
 });
