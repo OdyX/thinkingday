@@ -66,7 +66,7 @@ map.on('click', function(evt) {
         var id = feature.get('id');
         //content.innerHTML = feature.get('id');
         $.ajax({
-            url: MESSAGES_URL.replace('#pointid#', id);
+            url: MESSAGES_URL.replace('_point_id_', id);
         }).done(function (result) {
             // DO NOTHING
         });

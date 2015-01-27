@@ -17,7 +17,7 @@
 <script type="text/javascript">
   var STATIC_URL = {{ STATIC_URL }};
   var POINTS_URL = "{% url 'points' event_codename=event.codename %}";
-  var MESSAGES_URL = "{% url 'messages' point_id='#pointid#' %}";
+  var MESSAGES_URL = "{% url 'messages' point_id='_point_id_' %}";
 </script>
 <script src="{% static 'js/map_points.js' %}" type="text/javascript"></script>
 {% endblock %}
