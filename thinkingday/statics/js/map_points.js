@@ -84,7 +84,7 @@ function addMessage(message) {
 map.on('click', function(event) {
     var feature = map.forEachFeatureAtPixel(event.pixel,
         function(feature, layer) {
-            return {feature: feature, layout: layout};
+            return {feature: feature, layer: layer};
         });
     // feature exist -> return messages
     if (feature.feature && JSON.stringify(feature.layout) === JSON.stringify(messagesLayer)) {
