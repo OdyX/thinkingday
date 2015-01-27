@@ -34,7 +34,20 @@ var messagesLayer = new ol.layer.Vector({
     style: iconStyle
 });
 
+var mousePositionControl = new ol.control.MousePosition({
+      coordinateFormat: ol.coordinate.createStringXY(4),
+      projection: 'EPSG:4326',
+      // comment the following two lines to have the mouse position
+      // be placed within the map.
+      //className: 'custom-mouse-position',
+      //target: document.getElementById('mouse-position'),
+      //undefinedHTML: '&nbsp;'
+});
+
 var map = new ol.Map({
+    controls: ol.control.defaults({
+        attributionOptions: /** @type {olx.control.AttributionOptions} */ ({})
+    }).extend([mousePositionControl]),
     target: 'map',
     layers: [
         new ol.layer.Tile({
@@ -60,6 +73,7 @@ map.on('click', function(evt) {
         function(feature, layer) {
             return feature;
         });
+    // feature exist -> return messages
     if (feature) {
         var id = feature.get('id');
         $.ajax({
@@ -70,6 +84,10 @@ map.on('click', function(evt) {
                     addMessage(value);
                 });
         });
+    } else {
+        // Return click position to add a new point + message
+        var point = new ol.geom.Point(event.coordinate);
+        alert('x: ' + point[0] + ', y:' + point[1]);
     }
 });
 
