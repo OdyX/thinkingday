@@ -68,8 +68,8 @@ function addMessage(message) {
 }
 
 // display popup on click
-map.on('click', function(evt) {
-    var feature = map.forEachFeatureAtPixel(evt.pixel,
+map.on('click', function(event) {
+    var feature = map.forEachFeatureAtPixel(event.pixel,
         function(feature, layer) {
             return feature;
         });
