@@ -61,7 +61,13 @@ def messages(request, event_codename=None, point_id=None):
     one_message = {}
     one_message['id'] = 0;
     one_message['text'] = 'Message de test';
-
     all_messages['data'].append(one_message)
+
+    # Just fo testing, to be removed
+    a_second_message = {}
+    a_second_message = {}
+    a_second_message['id'] = 0;
+    a_second_message['text'] = 'Second message de test';
+    all_messages['data'].append(a_second_message)
 
     return HttpResponse(json.dumps(all_messages), content_type="application/json")

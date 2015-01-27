@@ -51,7 +51,7 @@ var map = new ol.Map({
 });
 
 function addMessage(message) {
-    $('#messages-content').append(message.text);
+    $('#messages-content').append('<p>' + message.text + '</p>');
 }
 
 // display popup on click
