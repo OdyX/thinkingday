@@ -79,11 +79,6 @@ map.on('click', function(event) {
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
         content.html('<p>x: ' + coord[0] + '<br>y: ' + coord[1] + '</p>');
-        addIcon({
-            x: coord[0],
-            y: coord[1],
-            id: null
-        });
     }
 });
 
