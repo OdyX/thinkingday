@@ -53,5 +53,5 @@ def points(request, event_codename=None):
 
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
 
-def messages(request, point_id=None):
+def messages(request, event_codename=None, point_id=None):
     return HttpResponse(status=200)
