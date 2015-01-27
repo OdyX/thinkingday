@@ -87,8 +87,7 @@ map.on('click', function(event) {
             return feature;
         });
     // feature exist -> return messages
-    if (feature && id in feature) {
-        var id = feature.get('id');
+    if (feature && id = feature.get('id')) {
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
