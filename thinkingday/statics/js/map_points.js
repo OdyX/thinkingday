@@ -16,7 +16,7 @@ var messagesSource = new ol.source.Vector({});
 function addIcon(message) {
     var iconFeature = new ol.Feature({
         geometry: new ol.geom.Point(ol.proj.transform([message.x, message.y], 'EPSG:4326', 'EPSG:900913')),
-        content: message.id
+        id: message.id
     });
     messagesSource.addFeature(iconFeature);
 }
@@ -63,7 +63,7 @@ map.on('click', function(evt) {
             return feature;
         });
     if (feature) {
-        content.innerHTML = feature.get('content');
+        content.innerHTML = feature.get('id');
     }
 });
 

@@ -36,7 +36,7 @@ def map(request, event_codename=None):
 
 
 @never_cache
-def messages(request, event_codename=None):
+def points(request, event_codename=None):
     event = get_event_by_codename(event_codename)
     marks = EventMark.objects.filter(event=event)
     all_marks = {}
@@ -52,3 +52,6 @@ def messages(request, event_codename=None):
             all_marks['data'].append(that_mark)
 
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
+
+def messages(request, point_id=None):
+    return HttpResponse(status=200)
