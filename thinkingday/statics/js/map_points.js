@@ -55,7 +55,8 @@ function addTempIcon(point) {
 }
 
 var tempLayer = new ol.layer.Vector({
-    source: iconTempStyle
+    source: tempSource,
+    style: iconTempStyle
 });
 
 var map = new ol.Map({
