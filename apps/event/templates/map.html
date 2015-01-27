@@ -6,12 +6,6 @@
 {% block stylesheets %}
 {{ block.super }}
             <link rel="stylesheet" href="{{ "//openlayers.org/en/"|resource_remotelocal:"openlayers/" }}v3.1.1/css/ol.css" type="text/css">
-            <style>
-              .map {
-                height: 600px;
-                width: 100%;
-              }
-            </style>
 {{ aemform.media }}
 {% endblock %}
 
@@ -39,11 +33,7 @@
         <div id="map" class="map"></div>
     </div>
     <div class="pure-u-1 pure-u-md-1-5">
-        <div class="l-box">
-            <h3>{{ event.name }}</h3>
-            <h3 class="information-head">{% trans "Leave a message" %}</h3>
-            <div id="messages-content"></div>
-        </div>
+        <div id="messages-content" class="l-box"></div>
     </div>
 </div>
 {% endblock %}
