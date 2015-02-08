@@ -80,7 +80,7 @@ var form = $('#form_container');
 var point_field = form.find('#id_point');
 
 function addMessage(message) {
-    content.append('<div><p><strong>' + message.datetime + ' - '+ message.user + '</strong></p><p>' + message.message + '</p></div>');
+    content.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
 }
 
 // event on map click => show messages or display form to add one
@@ -91,14 +91,15 @@ map.on('click', function(event) {
         });
     // feature exist -> return messages
     if (feature && (id = feature.get('id'))) {
+        form.hide();
+        //point_field.empty();
+        tempSource.clear();
+        // get messages
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
             if (result) {
                 content.empty().show();
-                form.hide();
-                //point_field.empty();
-                tempSource.clear(); // clear temp icon
                 $.each(result.messages, function(item, value) {
                     addMessage(value);
                 });
