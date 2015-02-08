@@ -22,7 +22,7 @@ class Comment(models.Model):
     def as_dict(self):
         selfdict = {}
         selfdict['id'] = self.id
-        selfdict['datetime'] = str(self.datetime)  # TODO: display in locale
+        selfdict['datetime'] = self.datetime.strftime('%d.%m.%y - %H:%M')  # TODO: display in locale
         selfdict['message'] = self.message
         selfdict['user'] = self.user.__unicode__()
         selfdict['avatar'] = self.user.profile.get_avatar_url()
