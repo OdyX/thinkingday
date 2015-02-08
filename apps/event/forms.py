@@ -3,17 +3,12 @@ from django.contrib.gis import forms
 
 
 class TDOSMWidget(forms.OSMWidget):
-    def __init__(self, *args, **kwargs):
-        super(TDOSMWidget, self).__init__(*args, **kwargs)
+    template_name = 'TDOSMwidget.html'
 
     class Media:
         # Override to use cloudflare's JS CDN
         extend = False
-        js = (
-            '//cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js',
-            'http://www.openstreetmap.org/openlayers/OpenStreetMap.js',
-            'gis/js/OLMapWidget.js',
-        )
+        js = ()
 
 
 class AddEventMarkForm(forms.Form):

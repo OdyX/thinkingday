@@ -77,7 +77,7 @@ var map = new ol.Map({
 
 var content = $('#messages-content');
 var form = $('#form_container');
-//var point_field = form.find('#');
+var point_field = form.find('#id_point');
 
 function addMessage(message) {
     content.append('<div><p><strong>' + message.datetime + ' - '+ message.user + '</strong></p><p>' + message.message + '</p></div>');
@@ -108,9 +108,7 @@ map.on('click', function(event) {
         // Return click position to add a new point
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
-        form.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')').show();
-        //point_field.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
-        //form.show();
+        point_field.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
         content.empty().hide();
         addTempIcon(point);
     }
