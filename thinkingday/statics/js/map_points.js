@@ -92,7 +92,7 @@ map.on('click', function(event) {
     // feature exist -> return messages
     if (feature && (id = feature.get('id'))) {
         form.hide();
-        //point_field.empty();
+        point_field.empty();
         tempSource.clear();
         // get messages
         $.ajax({
