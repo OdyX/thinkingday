@@ -13,7 +13,9 @@ class TDOSMWidget(forms.OSMWidget):
 
 class AddEventMarkForm(forms.Form):
     point = forms.PointField(widget=TDOSMWidget(), label='')
-    message = forms.CharField(widget=forms.Textarea(), required=True)
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'cols': '', 'rows': ''}),
+        required=True)
 
     def __init__(self, *args, **kwargs):
         self.event = kwargs.pop('event')

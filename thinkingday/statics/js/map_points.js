@@ -109,7 +109,7 @@ map.on('click', function(event) {
         // Return click position to add a new point
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
-        point_field.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
+        point_field.val('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
         content.hide();
         form.show();
         addTempIcon(point);
