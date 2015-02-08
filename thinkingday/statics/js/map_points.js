@@ -99,7 +99,7 @@ map.on('click', function(event) {
                 form.hide();
                 //point_field.empty();
                 tempSource.clear(); // clear temp icon
-                $.each(result.data, function(item, value) {
+                $.each(result.messages, function(item, value) {
                     addMessage(value);
                 });
             }
