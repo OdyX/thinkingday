@@ -29,7 +29,7 @@ class Comment(models.Model):
         return selfdict
 
     def __unicode__(self):
-        return '{user} commented \'{message}\' on a point'.format(
+        return u'{user} commented \'{message}\' on a point'.format(
             user=self.user,
             message=self.message
             )
