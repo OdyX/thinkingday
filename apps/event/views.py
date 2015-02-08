@@ -2,6 +2,7 @@
 import json
 from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
+from django.utils import timezone
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 from .models import get_event_by_codename, EventMark
