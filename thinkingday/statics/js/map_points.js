@@ -83,7 +83,7 @@ var newpoint_form = $('#form_container');
 var point_field = newpoint_form.find('#id_event-point');
 
 function addMessage(message) {
-    list_messages.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
+    list_messages.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
 }
 
 // event on map click => show messages or display form to add one
