@@ -5,8 +5,8 @@
 
 {% block stylesheets %}
 {{ block.super }}
-            <link rel="stylesheet" href="{{ "//openlayers.org/en/"|resource_remotelocal:"openlayers/" }}v3.1.1/css/ol.css" type="text/css">
-{{ aemform.media }}
+    <link rel="stylesheet" href="{{ "//openlayers.org/en/"|resource_remotelocal:"openlayers/" }}v3.1.1/css/ol.css" type="text/css">
+    {{ aemform.media }}
 {% endblock %}
 
 {% block remote_scripts %}
@@ -24,6 +24,7 @@
 
 {% block bodyclass %}{{ block.super }} fullmap{% endblock %}
 
+{# No banner #}
 {% block banner %}
 {% endblock %}
 
@@ -34,12 +35,22 @@
         <div id="map" class="map"></div>
     </div>
     <div class="pure-u-1 pure-u-md-1-5">
-        <div id="messages-content" class="l-box"></div>
+        <div id="show-messages" class="l-box">
+            <div id="list-existing-messages">
+            </div>
+            <div id="add-message">
+                <form method="post" action="{% url 'map' event_codename=event.codename %}" class="pure-form pure-form-stacked">
+                    {% csrf_token %}
+                    {{ amform }}
+                    <input type="submit" value="{% trans 'New message' %}" class="pure-button pure-button-primary">
+                </form>
+            </div>
+        </div>
         <div id="form_container" class="l-box">
             <form method="post" action="{% url 'map' event_codename=event.codename %}" class="pure-form pure-form-stacked">
                 {% csrf_token %}
                 {{ aemform }}
-                <button type="submit" class="pure-button pure-input-1 pure-button-primary">{% trans 'New message' %}</button>
+                <input type="submit" value="{% trans 'New message' %}" class="pure-button pure-button-primary">
             </form>
         </div>
     </div>

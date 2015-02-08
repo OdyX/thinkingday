@@ -75,12 +75,15 @@ var map = new ol.Map({
     })
 });
 
-var content = $('#messages-content');
+var existing_point = $('#show-messages');
+var list_messages = $('#list-existing-messages');
+var append_form = $('#add-message');
+var append_form_eventid = $('#id_eventmarkid');
 var form = $('#form_container');
 var point_field = form.find('#id_point');
 
 function addMessage(message) {
-    content.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
+    list_messages.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
 }
 
 // event on map click => show messages or display form to add one
@@ -92,26 +95,29 @@ map.on('click', function(event) {
     // feature exist -> return messages
     if (feature && (id = feature.get('id'))) {
         form.hide();
-        point_field.empty();
+        //point_field.empty();
         tempSource.clear();
         // get messages
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
             if (result) {
-                content.empty().show();
+                existing_point.show();
+                form.hide();
+                list_messages.empty();
                 $.each(result.messages, function(item, value) {
                     addMessage(value);
                 });
+                append_form_eventid.val(result.point_id)
             }
         });
     } else {
+        existing_point.hide();
+        form.show();
         // Return click position to add a new point
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
         point_field.val('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
-        form.show();
-        content.empty().hide();
         addTempIcon(point);
     }
 });
