@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 from .models import get_event_by_codename, EventMark
 from .forms import AddEventMarkForm
+from apps.comments.models import Comment
 
 
 def map(request, event_codename=None):
@@ -27,8 +28,15 @@ def map(request, event_codename=None):
             em.point = aemform.cleaned_data['point']
             em.user = request.user
             em.save()
-            # TODO: Do someting smart with that new point
-    aemform = AddEventMarkForm(event=event)
+            cm = Comment()
+            cm.eventmark = em
+            cm.user = em.user
+            cm.message = aemform.cleaned_data['message']
+            cm.save()
+            # Cleanup form and re-start
+            aemform = AddEventMarkForm(event=event)
+    else:
+        aemform = AddEventMarkForm(event=event)
 
     return render(request, 'map.html', {
             'event': event,
@@ -39,7 +47,7 @@ def map(request, event_codename=None):
 @never_cache
 def points(request, event_codename=None):
     event = get_event_by_codename(event_codename)
-    marks = EventMark.objects.filter(event=event)
+    marks = EventMark.objects.filter(event=event, event_messages__isnull=False)
     all_marks = {}
     if marks.count() > 0:
         all_marks['srid'] = marks[0].point.srid
