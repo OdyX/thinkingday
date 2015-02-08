@@ -233,7 +233,11 @@ div.message {
         }
     }
 
+    &:not(:first-child) {
+        padding-top: 0;
+    }
+
     &:not(:last-child) {
-        border: 1px solid black;
+        border-bottom: 1px solid black;
     }
 }
