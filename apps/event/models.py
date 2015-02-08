@@ -38,7 +38,8 @@ class EventMark(models.Model):
         verbose_name_plural = _('Event marks')
 
     def __unicode__(self):
-        return _(u'Point ({x}, {y}) created on {event}').format(
+        return _(u'{id} - Point ({x}, {y}) created on {event}').format(
+            id=self.id,
             x=self.point.x,
             y=self.point.y,
             event=self.event.codename,
