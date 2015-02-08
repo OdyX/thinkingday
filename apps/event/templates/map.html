@@ -21,8 +21,8 @@
 </script>
 <script src="{% static 'js/map_points.js' %}" type="text/javascript"></script>
 <script type="text/javascript">
-{% if not aemform.is_valid %}
-    form.show();
+{% if aemform.is_valid %}
+    form.hide();
 {% endif %}
 </script>
 {% endblock %}
