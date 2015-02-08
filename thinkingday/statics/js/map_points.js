@@ -80,7 +80,7 @@ var form = $('#form_container');
 var point_field = form.find('#id_point');
 
 function addMessage(message) {
-    content.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
+    content.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message.replace(/(?:\r\n|\r|\n)/g, '<br>') + '</p>');
 }
 
 // event on map click => show messages or display form to add one
