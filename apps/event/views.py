@@ -53,21 +53,22 @@ def points(request, event_codename=None):
 
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
 
+
 @never_cache
 def messages(request, event_codename=None, point_id=None):
     all_messages = {}
     all_messages['data'] = []
 
     one_message = {}
-    one_message['id'] = 0;
-    one_message['text'] = '{' + point_id + '} Message de test';
+    one_message['id'] = 0
+    one_message['text'] = '{' + point_id + '} Message de test'
     all_messages['data'].append(one_message)
 
     # Just fo testing, to be removed
     a_second_message = {}
     a_second_message = {}
-    a_second_message['id'] = 0;
-    a_second_message['text'] = 'Second message de test';
+    a_second_message['id'] = 0
+    a_second_message['text'] = 'Second message de test'
     all_messages['data'].append(a_second_message)
 
     return HttpResponse(json.dumps(all_messages), content_type="application/json")
