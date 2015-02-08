@@ -39,7 +39,7 @@
             <form method="post" action="{% url 'map' event_codename=event.codename %}" class="pure-form pure-form-stacked">
                 {% csrf_token %}
                 {{ aemform }}
-                <button type="submit" value="{% trans 'New message' %}" class="pure-button pure-button-primary">
+                <button type="submit" class="pure-button pure-input-1 pure-button-primary">{% trans 'New message' %}</button>
             </form>
         </div>
     </div>
