@@ -12,7 +12,7 @@ class TDOSMWidget(forms.OSMWidget):
 
 
 class AddEventMarkForm(forms.Form):
-    point = forms.PointField(widget=TDOSMWidget())
+    point = forms.PointField(widget=TDOSMWidget(), label='')
     message = forms.CharField(widget=forms.Textarea(), required=True)
 
     def __init__(self, *args, **kwargs):
