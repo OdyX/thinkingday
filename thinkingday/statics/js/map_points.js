@@ -76,12 +76,13 @@ var map = new ol.Map({
 });
 
 var content = $('#messages-content');
+var form = $('#form_container');
 
 function addMessage(message) {
     content.append('<p>' + message.text + '</p>');
 }
 
-// display popup on click
+// event on map click => show messages or display form to add one
 map.on('click', function(event) {
     var feature = map.forEachFeatureAtPixel(event.pixel,
         function(feature, layer) {
@@ -92,17 +93,20 @@ map.on('click', function(event) {
         $.ajax({
             url: MESSAGES_URL.replace('_point_id_', id)
         }).done(function (result) {
-            if (result)
-                content.empty();
+            if (result) {
+                content.empty().show();
+                form.hide();
                 $.each(result.data, function(item, value) {
                     addMessage(value);
                 });
+            }
         });
     } else {
-        // Return click position to add a new point + message
+        // Return click position to add a new point
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
-        content.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
+        form.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')').show();
+        content.hide();
         addTempIcon(point);
     }
 });
