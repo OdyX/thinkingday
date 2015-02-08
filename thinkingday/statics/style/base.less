@@ -218,11 +218,26 @@ div#map {
 }
 
 div.message {
+    padding: 20px 0;
+
     div.message_infos {
         font-weight: bold;
+
+        img.socialaccount-avatar {
+            float: left;
+            margin-right: 10px;
+        }
+
+        span.datetime {
+            font-size: 0.9 em;
+        }
     }
 
-    span.datetime {
-        font-size: 0.9 em;
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid black;
     }
 }
