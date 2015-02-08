@@ -20,6 +20,11 @@
   var MESSAGES_URL = "{% url 'messages' event_codename=event.codename point_id='_point_id_' %}";
 </script>
 <script src="{% static 'js/map_points.js' %}" type="text/javascript"></script>
+<script type="text/javascript">
+{% if not aemform.is_valid %}
+    form.show();
+{% endif %}
+</script>
 {% endblock %}
 
 {% block bodyclass %}{{ block.super }} fullmap{% endblock %}
