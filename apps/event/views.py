@@ -56,19 +56,9 @@ def points(request, event_codename=None):
 
 @never_cache
 def messages(request, event_codename=None, point_id=None):
-    all_messages = {}
-    all_messages['data'] = []
+    event = get_event_by_codename(event_codename)
+    mark = EventMark.objects.get(event=event, id=point_id)
+    messages = mark.event_messages.order_by('datetime').all()
 
-    one_message = {}
-    one_message['id'] = 0
-    one_message['text'] = '{' + point_id + '} Message de test'
-    all_messages['data'].append(one_message)
-
-    # Just fo testing, to be removed
-    a_second_message = {}
-    a_second_message = {}
-    a_second_message['id'] = 0
-    a_second_message['text'] = 'Second message de test'
-    all_messages['data'].append(a_second_message)
-
-    return HttpResponse(json.dumps(all_messages), content_type="application/json")
+    return HttpResponse(json.dumps([m.as_dict() for m in messages]),
+        content_type='application/json')

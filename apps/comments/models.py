@@ -19,6 +19,15 @@ class Comment(models.Model):
         verbose_name = _('Message')
         verbose_name_plural = _('Messages')
 
+    def as_dict(self):
+        selfdict = {}
+        selfdict['id'] = self.id
+        selfdict['datetime'] = str(self.datetime)  # TODO: display in locale
+        selfdict['message'] = self.message
+        selfdict['user'] = self.user.__unicode__()
+        selfdict['avatar'] = self.user.profile.get_avatar_url()
+        return selfdict
+
     def __unicode__(self):
         return '{user} commented \'{message}\' on a point'.format(
             user=self.user,
