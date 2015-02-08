@@ -77,9 +77,10 @@ var map = new ol.Map({
 
 var content = $('#messages-content');
 var form = $('#form_container');
+var point_field = form.find('#');
 
 function addMessage(message) {
-    content.append('<p>' + message.text + '</p>');
+    content.append('<div><p><strong>' + message.datetime + ' - '+ message.user + '</strong></p><p>' + message.message + '</p></div>');
 }
 
 // event on map click => show messages or display form to add one
@@ -96,6 +97,8 @@ map.on('click', function(event) {
             if (result) {
                 content.empty().show();
                 form.hide();
+                //point_field.empty();
+                tempSource.clear(); // clear temp icon
                 $.each(result.data, function(item, value) {
                     addMessage(value);
                 });
@@ -106,7 +109,9 @@ map.on('click', function(event) {
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');
         form.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')').show();
-        content.hide();
+        //point_field.html('SRID=4326;POINT(' + coord[0] + ' ' + coord[1] + ')');
+        //form.show();
+        content.empty().hide();
         addTempIcon(point);
     }
 });
