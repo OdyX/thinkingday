@@ -13,9 +13,8 @@ class TDOSMWidget(forms.OSMWidget):
 
 class AddEventMarkForm(forms.Form):
     point = forms.PointField(widget=TDOSMWidget())
-    event = False
+    message = forms.CharField(widget=forms.Textarea(), required=True)
 
     def __init__(self, *args, **kwargs):
         self.event = kwargs.pop('event')
-        # TODO: Use the event to create the center
         super(AddEventMarkForm, self).__init__(*args, **kwargs)
