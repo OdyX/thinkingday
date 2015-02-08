@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 from django.http import HttpResponse
-from django.utils import timezone
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 from .models import get_event_by_codename, EventMark
@@ -56,9 +56,17 @@ def points(request, event_codename=None):
 
 @never_cache
 def messages(request, event_codename=None, point_id=None):
-    event = get_event_by_codename(event_codename)
-    mark = EventMark.objects.get(event=event, id=point_id)
-    messages = mark.event_messages.order_by('datetime').all()
+    try:
+        event = get_event_by_codename(event_codename)
+        mark = EventMark.objects.get(event=event, id=point_id)
+        messages = mark.event_messages.order_by('datetime').all()
+    except:
+        raise PermissionDenied()
 
-    return HttpResponse(json.dumps([m.as_dict() for m in messages]),
+    jdata = {}
+    jdata['count'] = messages.count()
+    jdata['point_id'] = point_id
+    jdata['messages'] = [m.as_dict() for m in messages]
+
+    return HttpResponse(json.dumps(jdata, indent=2),
         content_type='application/json')
