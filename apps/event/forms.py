@@ -20,3 +20,12 @@ class AddEventMarkForm(forms.Form):
     def __init__(self, *args, **kwargs):
         self.event = kwargs.pop('event')
         super(AddEventMarkForm, self).__init__(*args, **kwargs)
+
+
+class AddMessageToEventMarkForm(forms.Form):
+    eventmarkid = forms.CharField(widget=forms.HiddenInput())
+    message = forms.CharField(widget=forms.Textarea(), required=True)
+
+    def __init__(self, *args, **kwargs):
+        self.event = kwargs.pop('event')
+        super(AddMessageToEventMarkForm, self).__init__(*args, **kwargs)

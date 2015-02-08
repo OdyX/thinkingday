@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 from .models import get_event_by_codename, EventMark
-from .forms import AddEventMarkForm
+from .forms import AddEventMarkForm, AddMessageToEventMarkForm
 from apps.comments.models import Comment
 
 
@@ -20,6 +20,7 @@ def map(request, event_codename=None):
     elif dt_now > event.end:
         assert False, 'event\'s over'
 
+    # Gère l'ajout de nouveaux messages pour des nouveaux points
     if request.method == 'POST' and request.user.is_authenticated():
         aemform = AddEventMarkForm(request.POST, event=event)
         if aemform.is_valid():
@@ -30,17 +31,29 @@ def map(request, event_codename=None):
             em.save()
             cm = Comment()
             cm.eventmark = em
-            cm.user = em.user
+            cm.user = request.user
             cm.message = aemform.cleaned_data['message']
             cm.save()
             # Cleanup form and re-start
             aemform = AddEventMarkForm(event=event)
+
+        amform = AddMessageToEventMarkForm(request.POST, event=event)
+        if amform.is_valid():
+            em = EventMark.objects.get(id=amform.cleaned_data['eventmarkid'])
+            cm = Comment()
+            cm.eventmark = em
+            cm.user = request.user
+            cm.message = amform.cleaned_data['message']
+            cm.save()
+            amform = AddMessageToEventMarkForm(event=event)
     else:
         aemform = AddEventMarkForm(event=event)
+        amform = AddMessageToEventMarkForm(event=event)
 
     return render(request, 'map.html', {
             'event': event,
             'aemform': aemform,
+            'amform': amform,
             })
 
 
