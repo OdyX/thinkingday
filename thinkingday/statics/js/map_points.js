@@ -77,7 +77,7 @@ var map = new ol.Map({
 
 var content = $('#messages-content');
 var form = $('#form_container');
-var point_field = form.find('#');
+//var point_field = form.find('#');
 
 function addMessage(message) {
     content.append('<div><p><strong>' + message.datetime + ' - '+ message.user + '</strong></p><p>' + message.message + '</p></div>');
