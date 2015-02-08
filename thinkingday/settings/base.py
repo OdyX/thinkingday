@@ -51,7 +51,6 @@ UPSTREAM_APPS = (
     'django.contrib.staticfiles',
     'compressor',
     'django.contrib.sites',
-    'django_comments',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
