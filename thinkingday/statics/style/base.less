@@ -242,12 +242,19 @@ div.message {
     }
 }
 
+div#messages-content {
+    display: none;
+}
+
 div#form_container {
     display: none;
 
     form {
         textarea, input, select {
             width: 100%;
+        }
+        textarea {
+            resize: vertical;
         }
     }
 }
