@@ -20,35 +20,49 @@ def map(request, event_codename=None):
     elif dt_now > event.end:
         assert False, 'event\'s over'
 
-    # Gère l'ajout de nouveaux messages pour des nouveaux points
-    if request.method == 'POST' and request.user.is_authenticated():
-        aemform = AddEventMarkForm(request.POST, event=event)
-        if aemform.is_valid():
-            em = EventMark()
-            em.event = event
-            em.point = aemform.cleaned_data['point']
-            em.user = request.user
-            em.save()
-            cm = Comment()
-            cm.eventmark = em
-            cm.user = request.user
-            cm.message = aemform.cleaned_data['message']
-            cm.save()
-            # Cleanup form and re-start
-            aemform = AddEventMarkForm(event=event)
+    if request.user.is_authenticated():
+        if request.method == 'POST':
+             # Gère l'ajout de nouveaux messages pour des nouveaux points
+            aemform = AddEventMarkForm(
+                request.POST,
+                event=event,
+                prefix='event')
+            if aemform.is_valid() and 'point' in aemform.cleaned_data:
+                em = EventMark()
+                em.event = event
+                em.point = aemform.cleaned_data['point']
+                em.user = request.user
+                em.save()
+                cm = Comment()
+                cm.eventmark = em
+                cm.user = request.user
+                cm.message = aemform.cleaned_data['message']
+                cm.save()
 
-        amform = AddMessageToEventMarkForm(request.POST, event=event)
-        if amform.is_valid():
-            em = EventMark.objects.get(id=amform.cleaned_data['eventmarkid'])
-            cm = Comment()
-            cm.eventmark = em
-            cm.user = request.user
-            cm.message = amform.cleaned_data['message']
-            cm.save()
-            amform = AddMessageToEventMarkForm(event=event)
+            amform = AddMessageToEventMarkForm(
+                request.POST,
+                event=event,
+                prefix='comment')
+            if amform.is_valid() and 'eventmarkid' in amform.cleaned_data:
+                em = EventMark.objects.get(
+                    id=amform.cleaned_data['eventmarkid']
+                    )
+                cm = Comment()
+                cm.eventmark = em
+                cm.user = request.user
+                cm.message = amform.cleaned_data['message']
+                cm.save()
+
+        aemform = AddEventMarkForm(
+            event=event,
+            prefix='event')
+        amform = AddMessageToEventMarkForm(
+                event=event,
+                prefix='comment')
     else:
-        aemform = AddEventMarkForm(event=event)
-        amform = AddMessageToEventMarkForm(event=event)
+        # TODO: Check what we should do when the users are not authenticated
+        aemform = None
+        amform = None
 
     return render(request, 'map.html', {
             'event': event,

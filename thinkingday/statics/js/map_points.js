@@ -78,9 +78,9 @@ var map = new ol.Map({
 var existing_point = $('#show-messages');
 var list_messages = $('#list-existing-messages');
 var append_form = $('#add-message');
-var append_form_eventid = $('#id_eventmarkid');
-var form = $('#form_container');
-var point_field = form.find('#id_point');
+var append_form_eventid = $('#id_comment-eventmarkid');
+var newpoint_form = $('#form_container');
+var point_field = newpoint_form.find('#id_event-point');
 
 function addMessage(message) {
     list_messages.append('<div class="message"><div class="message_infos"><img class="socialaccount-avatar" src="' + message.avatar + '" alt="avatar">' + message.user + '<br><span class="datetime">' + message.datetime + '</span></div><p class="message_text">' + message.message + '</p>');
@@ -94,8 +94,6 @@ map.on('click', function(event) {
         });
     // feature exist -> return messages
     if (feature && (id = feature.get('id'))) {
-        form.hide();
-        //point_field.empty();
         tempSource.clear();
         // get messages
         $.ajax({
@@ -103,7 +101,7 @@ map.on('click', function(event) {
         }).done(function (result) {
             if (result) {
                 existing_point.show();
-                form.hide();
+                newpoint_form.hide();
                 list_messages.empty();
                 $.each(result.messages, function(item, value) {
                     addMessage(value);
@@ -113,7 +111,7 @@ map.on('click', function(event) {
         });
     } else {
         existing_point.hide();
-        form.show();
+        newpoint_form.show();
         // Return click position to add a new point
         var point = new ol.geom.Point(event.coordinate);
         var coord = ol.proj.transform(point.getCoordinates(), 'EPSG:900913', 'EPSG:4326');

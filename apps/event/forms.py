@@ -24,7 +24,9 @@ class AddEventMarkForm(forms.Form):
 
 class AddMessageToEventMarkForm(forms.Form):
     eventmarkid = forms.CharField(widget=forms.HiddenInput())
-    message = forms.CharField(widget=forms.Textarea(), required=True)
+    message = forms.CharField(
+        widget=forms.Textarea(attrs={'cols': '', 'rows': ''}),
+        required=True)
 
     def __init__(self, *args, **kwargs):
         self.event = kwargs.pop('event')
