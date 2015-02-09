@@ -25,6 +25,8 @@
                 <li class="pure-dropdown right">
                     <a href="{% url 'user_profile' %}">{% trans "Profile" %}</a>
                     <ul class="pure-menu-children">
+                        <li><a href="{% url 'account_change_password' %}">{% trans "Change password" %}</a></li>
+                        <li><a href="{% url 'socialaccount_connections' %}">{% trans "Social networks" %}</a></li>
                         <li><a href="{% url 'account_logout' %}">{% trans "Sign out" %}</a></li>
                     </ul>
                 </li>
