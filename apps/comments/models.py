@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.utils.translation import ungettext, ugettext_lazy as _
+from django.utils.translation import ungettext, ugettext as _
 from django.contrib.gis.db import models
 from apps.event.models import EventMark
 from django.utils import timezone
