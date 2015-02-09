@@ -38,21 +38,25 @@
         <div id="show-messages" class="l-box" style="display: none;">
             <div id="list-existing-messages">
             </div>
-            <div id="add-message">
+            {% if amform %}
+              <div id="add-message">
                 <form method="post" action="{% url 'map' event_codename=event.codename %}" class="pure-form pure-form-stacked">
                     {% csrf_token %}
                     {{ amform }}
                     <input type="submit" value="{% trans 'New message' %}" class="pure-button pure-button-primary">
                 </form>
-            </div>
+              </div>
+            {% endif %}
         </div>
-        <div id="form_container" class="l-box">
+        {% if aemform %}
+          <div id="form_container" class="l-box">
             <form method="post" action="{% url 'map' event_codename=event.codename %}" class="pure-form pure-form-stacked">
                 {% csrf_token %}
                 {{ aemform }}
                 <input type="submit" value="{% trans 'New message' %}" class="pure-button pure-button-primary">
             </form>
-        </div>
+          </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

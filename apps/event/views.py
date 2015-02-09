@@ -17,10 +17,8 @@ def map(request, event_codename=None):
         return render(request, 'event_not_started.html', {
                 'event': event,
             })
-    elif dt_now > event.end:
-        assert False, 'event\'s over'
 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated() and dt_now < event.end:
         if request.method == 'POST':
              # Gère l'ajout de nouveaux messages pour des nouveaux points
             aemform = AddEventMarkForm(
