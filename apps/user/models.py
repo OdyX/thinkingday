@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
 from allauth.socialaccount.models import SocialAccount
 from libravatar import libravatar_url
@@ -14,8 +15,10 @@ class UserProfile(models.Model):
     def get_avatar_url(self, size=40):
         if self.socialaccount:
             return self.socialaccount.get_avatar_url()
-        else:
+        elif not settings.STATICFILES_LOCAL:
             return libravatar_url(email=self.user.email, size=size)
+        else:
+            return None
 
     def __unicode__(self):
         return "{}'s profile".format(self.user)
