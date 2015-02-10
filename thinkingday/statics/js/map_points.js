@@ -109,7 +109,7 @@ map.on('click', function(event) {
                 append_form_eventid.val(result.point_id)
             }
         });
-    } else {
+    } else if(EDITABLE_MAP) {
         existing_point.hide();
         newpoint_form.show();
         // Return click position to add a new point

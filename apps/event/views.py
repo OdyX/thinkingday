@@ -18,7 +18,9 @@ def map(request, event_codename=None):
                 'event': event,
             })
 
-    if request.user.is_authenticated() and dt_now < event.end:
+    editable_map = request.user.is_authenticated() and dt_now < event.end
+
+    if editable_map:
         if request.method == 'POST':
              # Gère l'ajout de nouveaux messages pour des nouveaux points
             aemform = AddEventMarkForm(
@@ -64,6 +66,7 @@ def map(request, event_codename=None):
 
     return render(request, 'map.html', {
             'event': event,
+            'editable_map': editable_map,
             'aemform': aemform,
             'amform': amform,
             })
