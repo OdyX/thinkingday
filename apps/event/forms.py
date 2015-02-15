@@ -2,6 +2,7 @@
 from django.contrib.gis import forms
 from django.utils.translation import ugettext_lazy as _
 
+
 class TDOSMWidget(forms.OSMWidget):
     template_name = 'TDOSMwidget.html'
 

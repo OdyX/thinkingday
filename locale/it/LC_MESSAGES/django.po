@@ -19,11 +19,11 @@ msgstr ""
 
 #: apps/comments/models.py:19
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 #: apps/comments/models.py:20
 msgid "Messages"
-msgstr ""
+msgstr "Messagie"
 
 #: apps/comments/models.py:51
 msgid "year"
