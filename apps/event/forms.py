@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.gis import forms
-
+from django.utils.translation import ugettext_lazy as _
 
 class TDOSMWidget(forms.OSMWidget):
     template_name = 'TDOSMwidget.html'
@@ -13,7 +13,7 @@ class TDOSMWidget(forms.OSMWidget):
 
 class AddEventMarkForm(forms.Form):
     point = forms.PointField(widget=TDOSMWidget(), label='')
-    message = forms.CharField(
+    message = forms.CharField(label=_('Message'),
         widget=forms.Textarea(attrs={'cols': '', 'rows': ''}),
         required=True)
 
@@ -24,7 +24,7 @@ class AddEventMarkForm(forms.Form):
 
 class AddMessageToEventMarkForm(forms.Form):
     eventmarkid = forms.CharField(widget=forms.HiddenInput())
-    message = forms.CharField(
+    message = forms.CharField(label=_('Message'),
         widget=forms.Textarea(attrs={'cols': '', 'rows': ''}),
         required=True)
 
