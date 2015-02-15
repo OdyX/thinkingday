@@ -6,72 +6,73 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-14 17:55+0000\n"
-"PO-Revision-Date: 2015-01-06 09:09+0100\n"
-"Last-Translator: Didier Raboud <oriole@vieux-mazel.ch>\n"
+"POT-Creation-Date: 2015-02-15 09:00+0100\n"
+"PO-Revision-Date: 2015-02-15 09:03+0100\n"
+"Last-Translator: Didier Raboud <odyx@debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 1.5\n"
+"Language-Team: French <>\n"
 
 #: apps/comments/models.py:19
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: apps/comments/models.py:20
 msgid "Messages"
-msgstr ""
+msgstr "Messages"
 
-#: apps/comments/models.py:53
+#: apps/comments/models.py:51
 msgid "year"
 msgid_plural "years"
 msgstr[0] "année"
 msgstr[1] "années"
 
-#: apps/comments/models.py:54
+#: apps/comments/models.py:52
 msgid "month"
 msgid_plural "months"
 msgstr[0] "mois"
 msgstr[1] "mois"
 
-#: apps/comments/models.py:55
+#: apps/comments/models.py:53
 msgid "week"
 msgid_plural "weeks"
 msgstr[0] "semaine"
 msgstr[1] "semaines"
 
-#: apps/comments/models.py:56
+#: apps/comments/models.py:54
 msgid "day"
 msgid_plural "days"
 msgstr[0] "jour"
 msgstr[1] "jours"
 
-#: apps/comments/models.py:62
+#: apps/comments/models.py:59
 #, python-format
 msgid "1 minute ago"
 msgid_plural "%(minutes)d minutes ago"
 msgstr[0] "il y a une minute"
 msgstr[1] "il y a %(minutes)d minutes"
 
-#: apps/comments/models.py:65
+#: apps/comments/models.py:62
 msgid "less than 1 minute ago"
 msgstr "il y a moins d'une minute"
 
-#: apps/comments/models.py:67
+#: apps/comments/models.py:64
 #, python-format
 msgid "1 hour ago"
 msgid_plural "%(hours)d hours ago"
 msgstr[0] "il y a une heure"
 msgstr[1] "il y a %(hours)d heures"
 
-#: apps/comments/models.py:71
+#: apps/comments/models.py:68
 #, python-format
 msgid "yesterday at %s"
 msgstr "hier à %s"
 
-#: apps/comments/models.py:79
+#: apps/comments/models.py:76
 #, python-format
 msgid "%(number)d %(type)s ago"
 msgstr "il y a %(number)d %(type)s"
@@ -85,16 +86,14 @@ msgid "Events"
 msgstr "Événements"
 
 #: apps/event/models.py:37
-#, fuzzy
 #| msgid "Event"
 msgid "Event mark"
-msgstr "Événement"
+msgstr "Marqueur"
 
 #: apps/event/models.py:38
-#, fuzzy
 #| msgid "Events"
 msgid "Event marks"
-msgstr "Événements"
+msgstr "Marqueurs"
 
 #: apps/event/models.py:41
 #, python-brace-format
@@ -104,7 +103,7 @@ msgstr ""
 #: apps/event/templates/event_not_started.html:12
 #, python-format
 msgid "<q>%(event_name)s</q> has unfortunately not started yet!"
-msgstr ""
+msgstr "L'événement <q>%(event_name)s</q> n'a pas commencé!"
 
 #: apps/event/templates/event_not_started.html:14
 #, python-format
@@ -114,61 +113,61 @@ msgid ""
 "%(event_time)s on!\n"
 "        "
 msgstr ""
+"\n"
+"            Sois patient et reviens le %(event_date)s dès %(event_time)s !\n"
+"        "
 
-#: apps/event/templates/map.html:45 apps/event/templates/map.html.py:53
+#: apps/event/templates/map.html:47 apps/event/templates/map.html.py:57
 msgid "New message"
-msgstr ""
+msgstr "Nouveau message"
 
 #: apps/user/forms.py:58
 msgid "Preferred social account"
-msgstr ""
+msgstr "Compte social préféré"
 
 #: apps/user/templates/profile.html:13
-#, fuzzy
 #| msgid "Profile"
 msgid "Public profile"
-msgstr "Profil"
+msgstr "Profil public"
 
 #: apps/user/templates/profile.html:17
 msgid "Name"
-msgstr ""
+msgstr "Nom "
 
 #: apps/user/templates/profile.html:21
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: apps/user/templates/profile.html:25
 msgid "Social accounts"
-msgstr ""
+msgstr "Comptes sociaux"
 
 #: apps/user/templates/profile.html:38
 #, python-format
 msgid "Connect a %(p)s account"
-msgstr ""
+msgstr "Connecter un compte %(p)s"
 
 #: apps/user/templates/profile.html:45
-#, fuzzy
 #| msgid "Profile"
 msgid "Private profile"
-msgstr "Profil"
+msgstr "Profil privé"
 
 #: apps/user/templates/profile.html:49
-#, fuzzy
 #| msgid "E-mail"
 msgid "Email"
 msgstr "Courriel"
 
 #: apps/user/templates/profile.html:52
 msgid "Change email"
-msgstr ""
+msgstr "Changer d'email"
 
 #: apps/user/templates/profile.html:54
 msgid "Configure emails"
-msgstr ""
+msgstr "Configurer les courriels"
 
 #: apps/user/templates/profile.html:67
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: thinkingday/settings/base.py:126
 msgid "German"
@@ -224,7 +223,7 @@ msgstr "Nos partenaires :"
 msgid "PBS"
 msgstr "MSdS"
 
-#: thinkingday/templates/header.html:6 thinkingday/templates/header.html:19
+#: thinkingday/templates/header.html:6 thinkingday/templates/header.html:22
 msgid "Homepage"
 msgstr "Page d'accueil"
 
@@ -233,26 +232,40 @@ msgid "Swiss scouts"
 msgstr "Scouts suisses"
 
 #: thinkingday/templates/header.html:11
-msgid "Login"
-msgstr ""
+#, fuzzy
+#| msgid "Sign Up"
+msgid "Signup"
+msgstr "S'enregistrer"
 
-#: thinkingday/templates/header.html:21 thinkingday/templates/home.html:31
+#: thinkingday/templates/header.html:14
+msgid "Login"
+msgstr "Se connecter"
+
+#: thinkingday/templates/header.html:24 thinkingday/templates/home.html:31
 msgid "Administration"
 msgstr "Administration"
 
-#: thinkingday/templates/header.html:26
+#: thinkingday/templates/header.html:29
 msgid "Profile"
 msgstr "Profil"
 
-#: thinkingday/templates/header.html:28 thinkingday/templates/home.html:29
+#: thinkingday/templates/header.html:31
+msgid "Change password"
+msgstr "Changer mon mot de passe"
+
+#: thinkingday/templates/header.html:32
+msgid "Social networks"
+msgstr "Réseaux sociaux"
+
+#: thinkingday/templates/header.html:33 thinkingday/templates/home.html:29
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: thinkingday/templates/header.html:49
+#: thinkingday/templates/header.html:54
 msgid "http://www.scout.ch"
 msgstr "http://www.scout.ch/fr"
 
-#: thinkingday/templates/header.html:49
+#: thinkingday/templates/header.html:54
 msgid "ecke_de.png"
 msgstr "ecke_fr.png"
 
@@ -281,3 +294,4 @@ msgstr "Nous te tiendrons informé des prochaines étapes!"
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
 msgstr "Au 22 février !"
+
