@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from apps.user.forms import EmailOnlyForm
 from apps.event.models import Event
 from allauth.account.utils import send_email_confirmation
@@ -22,6 +23,11 @@ def home(request):
             return redirect('thanks')
 
     form = EmailOnlyForm()
+
+    if event:
+        dt_now = timezone.now()
+        if dt_now > event.start and dt_now < event.end:
+            return redirect('map', event_codename=event.codename)
 
     return render(request, 'home.html', {
             'event': event,
