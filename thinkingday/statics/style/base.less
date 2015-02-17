@@ -2,7 +2,7 @@
 @fontserif: 'Josefin Slab', serif;
 
 @bannerimg: '/static/img/nomad.jpg';
-@banneroffset: -20px;
+@banneroffset: -60px;
 @scoutscornerwidth: 97px;
 
 @linkhovercolor: rgb(106, 76, 48);
@@ -26,7 +26,7 @@ a {
 
 /* Barre de menus */
 .pure-menu {
-    background: transparent url(@bannerimg) 0 0 no-repeat fixed !important;
+    background: transparent url(@bannerimg) 0 @banneroffset no-repeat fixed !important;
     background-size: cover !important;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@bannerimg', sizingMethod='scale');
     background-position: 0px @banneroffset;
@@ -139,7 +139,7 @@ a {
 }
 
 .banner {
-    background: transparent url(@bannerimg) 0 0 no-repeat fixed;
+    background: transparent url(@bannerimg) 0 @banneroffset no-repeat fixed;
     text-align: center;
     background-size: cover;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@bannerimg', sizingMethod='scale');
