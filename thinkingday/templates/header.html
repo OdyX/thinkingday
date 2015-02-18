@@ -19,12 +19,12 @@
     {% else %}
         <div class="pure-menu pure-menu-open pure-menu-horizontal">
             <ul>
-                <li id="homelink" {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Homepage" %}</a></li>
+                <li {% if current_page == 'home'%}class="pure-menu-selected"{% endif %}><a href="{% url 'home' %}">{% trans "Homepage" %}</a></li>
+            </ul>
+            <ul class="right">
                 {% if user.is_superuser %}
                     <li><a href="{% url 'admin:index' %}">{% trans "Administration" %}</a></li>
                 {% endif %}
-            </ul>
-            <ul class="right">
                 <li class="pure-dropdown right">
                     <a href="{% url 'user_profile' %}">{% trans "Profile" %}</a>
                     <ul class="pure-menu-children">
