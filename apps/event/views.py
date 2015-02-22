@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.core.exceptions import PermissionDenied
 from django.utils import timezone
 from django.shortcuts import render
-from django.views.decorators.cache import never_cache
+from django.views.decorators.cache import never_cache, cache_page
 from .models import get_event_by_codename, EventMark
 from .forms import AddEventMarkForm, AddMessageToEventMarkForm
 from apps.comments.models import Comment
@@ -93,6 +93,8 @@ def points(request, event_codename=None):
     return HttpResponse(json.dumps(all_marks), content_type="application/json")
 
 
+# 5 minutes
+@cache_page(5 * 60)
 def messages(request, event_codename=None, point_id=None):
     try:
         event = get_event_by_codename(event_codename)
