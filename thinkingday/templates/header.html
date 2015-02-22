@@ -1,6 +1,9 @@
 {% load i18n %}
 {% load td_filters %}
 <div id="absolute-header">
+    <div id="select_lang">
+        {% include "language_selector.html" %}
+    </div>
     {% if not user.is_authenticated %}
         <div>
             <a id="homelink" href="{% url 'home' %}" title="{% trans "Homepage" %}">{% trans "Swiss scouts" %}</a>
@@ -37,19 +40,6 @@
             <div style="clear: right;"></div>
         </div>
     {% endif %}
-    <div id="select_lang">
-        <ul>
-            {% get_language_info_list for LANGUAGES as languages %}
-            {% for language in languages %}
-                <li><form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ request|setlang:language.code }}" />
-                    <input name="language" type="hidden" value="{{ language.code }}" />
-                    <button type="submit" class="lang_toggle_submit" title="{{ language.name_local|title }}">{{ language.name_local|first|upper }} </button>
-                </form></li>
-            {% endfor %}
-        </ul>
-    </div>
     <div>
         <a id="scouts-infos" href="{% trans "http://www.scout.ch" %}"><img src="{{ STATIC_URL }}img/{% trans "ecke_de.png" %}"></a>
     </div>
