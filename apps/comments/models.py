@@ -27,7 +27,10 @@ class Comment(models.Model):
         selfdict['datetime'] = date_diff(self.datetime)
         selfdict['message'] = self.message
         selfdict['user'] = self.user.__unicode__()
-        selfdict['avatar'] = self.user.profile.get_avatar_url()
+        try:
+            selfdict['avatar'] = self.user.profile.get_avatar_url()
+        except:
+            pass
         return selfdict
 
     def __unicode__(self):
