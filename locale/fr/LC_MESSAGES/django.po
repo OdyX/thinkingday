@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-22 13:36+0100\n"
+"POT-Creation-Date: 2015-02-22 13:45+0100\n"
 "PO-Revision-Date: 2015-02-22 13:11+0100\n"
 "Last-Translator: Didier Raboud <odyx@debian.org>\n"
 "Language: fr\n"
@@ -119,7 +119,12 @@ msgstr ""
 msgid "You could post on the map if you were connected!"
 msgstr "Tu pourrais poster sur la carte si tu étais connecté!"
 
-#: apps/event/templates/map.html:50 apps/event/templates/map.html.py:60
+#: apps/event/templates/map.html:38
+#, python-format
+msgid "The event %(event_title)s is over!"
+msgstr "L'événement %(event_title)s est terminé!"
+
+#: apps/event/templates/map.html:53 apps/event/templates/map.html.py:63
 msgid "New message"
 msgstr "Nouveau message"
 

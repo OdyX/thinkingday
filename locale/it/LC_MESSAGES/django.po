@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-22 13:36+0100\n"
+"POT-Creation-Date: 2015-02-22 13:45+0100\n"
 "PO-Revision-Date: 2015-02-16 19:20+0100\n"
 "Last-Translator: Gigio\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,16 @@ msgstr ""
 "%(event_time)s!\n"
 "        "
 
-#: apps/event/templates/map.html:47 apps/event/templates/map.html.py:57
+#: apps/event/templates/map.html:35
+msgid "You could post on the map if you were connected!"
+msgstr ""
+
+#: apps/event/templates/map.html:38
+#, python-format
+msgid "The event %(event_title)s is over!"
+msgstr ""
+
+#: apps/event/templates/map.html:53 apps/event/templates/map.html.py:63
 msgid "New message"
 msgstr "Nuovo messaggio"
 
