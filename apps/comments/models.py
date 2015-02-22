@@ -30,7 +30,7 @@ class Comment(models.Model):
         try:
             selfdict['avatar'] = self.user.profile.get_avatar_url()
         except:
-            pass
+            selfdict['avatar'] = 'http://cdn.libravatar.org/avatar/error?s=40'
         return selfdict
 
     def __unicode__(self):
