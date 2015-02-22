@@ -17,7 +17,7 @@ msgstr ""
 "Language: fr\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: apps/comments/models.py:19
+#: apps/comments/models.py:19 apps/event/forms.py:17 apps/event/forms.py:28
 msgid "Message"
 msgstr "Messaggio"
 
@@ -98,12 +98,12 @@ msgstr "Segnalini evento"
 msgid "{id} - Point ({x}, {y}) created on {event}"
 msgstr ""
 
-#: apps/event/templates/event_not_started.html:12
+#: apps/event/templates/event_not_started.html:14
 #, python-format
 msgid "<q>%(event_name)s</q> has unfortunately not started yet!"
 msgstr "<q>%(event_name)s</q> non è sfortunatamente ancora cominciato!"
 
-#: apps/event/templates/event_not_started.html:14
+#: apps/event/templates/event_not_started.html:16
 #, python-format
 msgid ""
 "\n"
@@ -112,8 +112,8 @@ msgid ""
 "        "
 msgstr ""
 "\n"
-"            Siate pazienti e tornare il %(event_date)s a partire dalle %"
-"(event_time)s!\n"
+"            Siate pazienti e tornare il %(event_date)s a partire dalle "
+"%(event_time)s!\n"
 "        "
 
 #: apps/event/templates/map.html:47 apps/event/templates/map.html.py:57
@@ -150,7 +150,6 @@ msgid "Private profile"
 msgstr "Profilo privato"
 
 #: apps/user/templates/profile.html:49
-#| msgid "E-mail"
 msgid "Email"
 msgstr "E-Mail"
 
@@ -192,9 +191,9 @@ msgid ""
 "together online and honour the World Thinking Day, each year on the 22nd of "
 "February."
 msgstr ""
-"ThinkingDay.ch è una piattaforma che permette agli scout di tutta la Svizzera "
-"di incontrarsi online per festeggiare Il World Thinking Day che ricorre "
-"annualmente il 22 febbraio."
+"ThinkingDay.ch è una piattaforma che permette agli scout di tutta la "
+"Svizzera di incontrarsi online per festeggiare Il World Thinking Day che "
+"ricorre annualmente il 22 febbraio."
 
 #: thinkingday/templates/footer.html:6
 msgid "Phone"
@@ -236,7 +235,7 @@ msgstr "Registrazione"
 msgid "Login"
 msgstr "Login"
 
-#: thinkingday/templates/header.html:24 thinkingday/templates/home.html:31
+#: thinkingday/templates/header.html:26 thinkingday/templates/home.html:31
 msgid "Administration"
 msgstr "Amministrazione"
 
@@ -256,13 +255,17 @@ msgstr "Piattaforme di scambio"
 msgid "Sign out"
 msgstr "Esci"
 
-#: thinkingday/templates/header.html:54
+#: thinkingday/templates/header.html:44
 msgid "http://www.scout.ch"
 msgstr "http://www.scout.ch/it"
 
-#: thinkingday/templates/header.html:54
+#: thinkingday/templates/header.html:44
 msgid "ecke_de.png"
 msgstr "ecke_it.png"
+
+#: thinkingday/templates/header.html:44
+msgid "Infos für Pfadis"
+msgstr "Alla piattaforma dei membri"
 
 #: thinkingday/templates/home.html:14
 msgid "Subscribe now!"

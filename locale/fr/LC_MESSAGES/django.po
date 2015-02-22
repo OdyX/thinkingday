@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-15 09:00+0100\n"
-"PO-Revision-Date: 2015-02-15 09:03+0100\n"
+"POT-Creation-Date: 2015-02-22 13:11+0100\n"
+"PO-Revision-Date: 2015-02-22 13:11+0100\n"
 "Last-Translator: Didier Raboud <odyx@debian.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Language-Team: French <>\n"
 
-#: apps/comments/models.py:19
+#: apps/comments/models.py:19 apps/event/forms.py:17 apps/event/forms.py:28
 msgid "Message"
 msgstr "Message"
 
@@ -86,12 +86,10 @@ msgid "Events"
 msgstr "Événements"
 
 #: apps/event/models.py:37
-#| msgid "Event"
 msgid "Event mark"
 msgstr "Marqueur"
 
 #: apps/event/models.py:38
-#| msgid "Events"
 msgid "Event marks"
 msgstr "Marqueurs"
 
@@ -100,12 +98,12 @@ msgstr "Marqueurs"
 msgid "{id} - Point ({x}, {y}) created on {event}"
 msgstr ""
 
-#: apps/event/templates/event_not_started.html:12
+#: apps/event/templates/event_not_started.html:14
 #, python-format
 msgid "<q>%(event_name)s</q> has unfortunately not started yet!"
 msgstr "L'événement <q>%(event_name)s</q> n'a pas commencé!"
 
-#: apps/event/templates/event_not_started.html:14
+#: apps/event/templates/event_not_started.html:16
 #, python-format
 msgid ""
 "\n"
@@ -126,7 +124,6 @@ msgid "Preferred social account"
 msgstr "Compte social préféré"
 
 #: apps/user/templates/profile.html:13
-#| msgid "Profile"
 msgid "Public profile"
 msgstr "Profil public"
 
@@ -148,12 +145,10 @@ msgid "Connect a %(p)s account"
 msgstr "Connecter un compte %(p)s"
 
 #: apps/user/templates/profile.html:45
-#| msgid "Profile"
 msgid "Private profile"
 msgstr "Profil privé"
 
 #: apps/user/templates/profile.html:49
-#| msgid "E-mail"
 msgid "Email"
 msgstr "Courriel"
 
@@ -241,7 +236,7 @@ msgstr "S'enregistrer"
 msgid "Login"
 msgstr "Se connecter"
 
-#: thinkingday/templates/header.html:24 thinkingday/templates/home.html:31
+#: thinkingday/templates/header.html:26 thinkingday/templates/home.html:31
 msgid "Administration"
 msgstr "Administration"
 
@@ -261,13 +256,17 @@ msgstr "Réseaux sociaux"
 msgid "Sign out"
 msgstr "Se déconnecter"
 
-#: thinkingday/templates/header.html:54
+#: thinkingday/templates/header.html:44
 msgid "http://www.scout.ch"
 msgstr "http://www.scout.ch/fr"
 
-#: thinkingday/templates/header.html:54
+#: thinkingday/templates/header.html:44
 msgid "ecke_de.png"
 msgstr "ecke_fr.png"
+
+#: thinkingday/templates/header.html:44
+msgid "Infos für Pfadis"
+msgstr "Infos pour les scouts"
 
 #: thinkingday/templates/home.html:14
 msgid "Subscribe now!"
