@@ -16,7 +16,10 @@ class UserProfile(models.Model):
         if self.socialaccount:
             return self.socialaccount.get_avatar_url()
         elif not settings.STATICFILES_LOCAL:
-            return libravatar_url(email=self.user.email, size=size)
+            try:
+                return libravatar_url(email=self.user.email, size=size)
+            except:
+                return "http://cdn.libravatar.org/avatar/error?s=%s" % size
         else:
             return None
 
