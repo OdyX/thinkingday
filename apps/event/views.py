@@ -108,5 +108,4 @@ def messages(request, event_codename=None, point_id=None):
     jdata['point_id'] = point_id
     jdata['messages'] = [m.as_dict() for m in messages]
 
-    return HttpResponse(json.dumps(jdata, indent=2),
-        content_type='application/json')
+    return HttpResponse(json.dumps(jdata), content_type='application/json')
