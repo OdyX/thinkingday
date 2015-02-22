@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 08:08+0000\n"
+"POT-Creation-Date: 2015-02-22 13:36+0100\n"
 "PO-Revision-Date: 2015-01-06 09:12+0100\n"
 "Last-Translator: Pamina - Christine Egli <pamina@pfadi-uster-greifensee.ch>\n"
 "Language: de\n"
@@ -16,35 +16,181 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: apps/event/models.py:18
+#: apps/comments/models.py:19 apps/event/forms.py:17 apps/event/forms.py:28
+msgid "Message"
+msgstr ""
+
+#: apps/comments/models.py:20
+msgid "Messages"
+msgstr ""
+
+#: apps/comments/models.py:51
+msgid "year"
+msgid_plural "years"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:52
+msgid "month"
+msgid_plural "months"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:53
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:54
+msgid "day"
+msgid_plural "days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:59
+#, python-format
+msgid "1 minute ago"
+msgid_plural "%(minutes)d minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:62
+msgid "less than 1 minute ago"
+msgstr ""
+
+#: apps/comments/models.py:64
+#, python-format
+msgid "1 hour ago"
+msgid_plural "%(hours)d hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: apps/comments/models.py:68
+#, python-format
+msgid "yesterday at %s"
+msgstr ""
+
+#: apps/comments/models.py:76
+#, python-format
+msgid "%(number)d %(type)s ago"
+msgstr ""
+
+#: apps/event/models.py:21
 msgid "Event"
 msgstr "Anlass"
 
-#: apps/event/models.py:19
+#: apps/event/models.py:22
 msgid "Events"
 msgstr "Anlässe"
 
-#: thinkingday/settings/base.py:96
+#: apps/event/models.py:37
+#, fuzzy
+#| msgid "Event"
+msgid "Event mark"
+msgstr "Anlass"
+
+#: apps/event/models.py:38
+#, fuzzy
+#| msgid "Events"
+msgid "Event marks"
+msgstr "Anlässe"
+
+#: apps/event/models.py:41
+#, python-brace-format
+msgid "{id} - Point ({x}, {y}) created on {event}"
+msgstr ""
+
+#: apps/event/templates/event_not_started.html:14
+#, python-format
+msgid "<q>%(event_name)s</q> has unfortunately not started yet!"
+msgstr ""
+
+#: apps/event/templates/event_not_started.html:16
+#, python-format
+msgid ""
+"\n"
+"            Please be patient and come back on %(event_date)s from "
+"%(event_time)s on!\n"
+"        "
+msgstr ""
+
+#: apps/event/templates/map.html:35
+msgid "You could post on the map if you were connected!"
+msgstr "Du könntest auf die Karte posten: melde dich an!"
+
+#: apps/event/templates/map.html:50 apps/event/templates/map.html.py:60
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#: apps/user/forms.py:58
+msgid "Preferred social account"
+msgstr ""
+
+#: apps/user/templates/profile.html:13
+msgid "Public profile"
+msgstr ""
+
+#: apps/user/templates/profile.html:17
+msgid "Name"
+msgstr ""
+
+#: apps/user/templates/profile.html:21
+msgid "Avatar"
+msgstr ""
+
+#: apps/user/templates/profile.html:25
+msgid "Social accounts"
+msgstr ""
+
+#: apps/user/templates/profile.html:38
+#, python-format
+msgid "Connect a %(p)s account"
+msgstr ""
+
+#: apps/user/templates/profile.html:45
+msgid "Private profile"
+msgstr ""
+
+#: apps/user/templates/profile.html:49
+#, fuzzy
+#| msgid "E-mail"
+msgid "Email"
+msgstr "E-mail"
+
+#: apps/user/templates/profile.html:52
+msgid "Change email"
+msgstr ""
+
+#: apps/user/templates/profile.html:54
+msgid "Configure emails"
+msgstr ""
+
+#: apps/user/templates/profile.html:67
+msgid "Save"
+msgstr ""
+
+#: thinkingday/settings/base.py:126
 msgid "German"
 msgstr "Deutsch"
 
-#: thinkingday/settings/base.py:97
+#: thinkingday/settings/base.py:127
 msgid "French"
 msgstr "Französisch"
 
-#: thinkingday/settings/base.py:98
+#: thinkingday/settings/base.py:128
 msgid "Italian"
 msgstr "Italienisch"
 
-#: thinkingday/settings/base.py:99
+#: thinkingday/settings/base.py:129
 msgid "English"
 msgstr "Englisch"
 
-#: thinkingday/templates/base.html:29 thinkingday/templates/base.html.py:42
+#: thinkingday/templates/base.html:31 thinkingday/templates/base.html.py:44
 msgid "ThinkingDay.ch"
 msgstr "ThinkingDay.ch"
 
-#: thinkingday/templates/base.html:45
+#: thinkingday/templates/base.html:47
 msgid ""
 "ThinkingDay.ch is a platform to allow scouts from Switzerland to gather "
 "together online and honour the World Thinking Day, each year on the 22nd of "
@@ -78,43 +224,67 @@ msgstr "Unsere Partner:"
 msgid "PBS"
 msgstr "PBS"
 
-#: thinkingday/templates/header.html:5
+#: thinkingday/templates/header.html:6 thinkingday/templates/header.html:22
 msgid "Homepage"
 msgstr "Hauptseite"
 
-#: thinkingday/templates/header.html:5
+#: thinkingday/templates/header.html:6
 msgid "Swiss scouts"
 msgstr "Schweizer Pfadis"
 
-#: thinkingday/templates/header.html:21
+#: thinkingday/templates/header.html:11
+msgid "Signup"
+msgstr "Anmelden"
+
+#: thinkingday/templates/header.html:14
+msgid "Login"
+msgstr ""
+
+#: thinkingday/templates/header.html:26 thinkingday/templates/home.html:31
+msgid "Administration"
+msgstr "Administration"
+
+#: thinkingday/templates/header.html:29
+msgid "Profile"
+msgstr ""
+
+#: thinkingday/templates/header.html:31
+msgid "Change password"
+msgstr ""
+
+#: thinkingday/templates/header.html:32
+msgid "Social networks"
+msgstr ""
+
+#: thinkingday/templates/header.html:33 thinkingday/templates/home.html:29
+msgid "Sign out"
+msgstr "Abmelden"
+
+#: thinkingday/templates/header.html:44
 msgid "http://www.scout.ch"
 msgstr "http://www.scout.ch/de"
 
-#: thinkingday/templates/header.html:21
+#: thinkingday/templates/header.html:44
 msgid "ecke_de.png"
 msgstr "ecke_de.png"
 
-#: thinkingday/templates/home.html:13
+#: thinkingday/templates/header.html:44
+msgid "Infos für Pfadis"
+msgstr ""
+
+#: thinkingday/templates/home.html:14
 msgid "Subscribe now!"
 msgstr "Melde dich jetzt an!"
 
-#: thinkingday/templates/home.html:23
+#: thinkingday/templates/home.html:24
 msgid "Sign Up"
 msgstr "Anmelden"
 
-#: thinkingday/templates/home.html:26
+#: thinkingday/templates/home.html:27
 #, python-format
 msgid ""
 "You are already connected as <b>%(user)s</b>, you cannot subscribe again!"
 msgstr "Du bist bereits als <b>%(user)s</b> angemeldet!"
-
-#: thinkingday/templates/home.html:28
-msgid "Sign out"
-msgstr "Abmelden"
-
-#: thinkingday/templates/home.html:30
-msgid "Administration"
-msgstr "Administration"
 
 #: thinkingday/templates/registration_thanks.html:5
 msgid "Thanks for the registration!"

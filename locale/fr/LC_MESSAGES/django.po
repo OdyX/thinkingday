@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-22 13:11+0100\n"
+"POT-Creation-Date: 2015-02-22 13:36+0100\n"
 "PO-Revision-Date: 2015-02-22 13:11+0100\n"
 "Last-Translator: Didier Raboud <odyx@debian.org>\n"
 "Language: fr\n"
@@ -115,7 +115,11 @@ msgstr ""
 "            Sois patient et reviens le %(event_date)s dès %(event_time)s !\n"
 "        "
 
-#: apps/event/templates/map.html:47 apps/event/templates/map.html.py:57
+#: apps/event/templates/map.html:35
+msgid "You could post on the map if you were connected!"
+msgstr "Tu pourrais poster sur la carte si tu étais connecté!"
+
+#: apps/event/templates/map.html:50 apps/event/templates/map.html.py:60
 msgid "New message"
 msgstr "Nouveau message"
 
@@ -180,11 +184,11 @@ msgstr "Italien"
 msgid "English"
 msgstr "Anglais"
 
-#: thinkingday/templates/base.html:30 thinkingday/templates/base.html.py:43
+#: thinkingday/templates/base.html:31 thinkingday/templates/base.html.py:44
 msgid "ThinkingDay.ch"
 msgstr "ThinkingDay.ch"
 
-#: thinkingday/templates/base.html:46
+#: thinkingday/templates/base.html:47
 msgid ""
 "ThinkingDay.ch is a platform to allow scouts from Switzerland to gather "
 "together online and honour the World Thinking Day, each year on the 22nd of "
@@ -293,4 +297,3 @@ msgstr "Nous te tiendrons informé des prochaines étapes!"
 #: thinkingday/templates/registration_thanks.html:7
 msgid "See you on the 22nd of February!"
 msgstr "Au 22 février !"
-

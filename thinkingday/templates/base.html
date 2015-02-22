@@ -21,6 +21,7 @@
             <link href="{{ "//yui.yahooapis.com/"|resource_remotelocal }}pure/0.5.0/pure-min.css" rel="stylesheet" type="text/css"  />
             <link href="{{ "//yui.yahooapis.com/"|resource_remotelocal }}pure/0.5.0/grids-responsive-min.css"  rel="stylesheet" type="text/css"/>
             {% compress css %}
+            <link href="{% static "ext/pure/pure-extras.css" %}" type="text/css" rel="stylesheet" />
             <link href="{% static "style/base.less" %}" type="text/less" rel="stylesheet" />
             {% endcompress %}
         {% endblock %}

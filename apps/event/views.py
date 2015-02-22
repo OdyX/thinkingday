@@ -19,6 +19,7 @@ def map(request, event_codename=None):
             })
 
     editable_map = request.user.is_authenticated() and dt_now < event.end
+    event_running = event.start < dt_now < event.end
 
     if editable_map:
         if request.method == 'POST':
@@ -67,6 +68,7 @@ def map(request, event_codename=None):
     return render(request, 'map.html', {
             'event': event,
             'editable_map': editable_map,
+            'event_running': event_running,
             'aemform': aemform,
             'amform': amform,
             })
