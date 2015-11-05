@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from apps.user.forms import EmailOnlyForm
@@ -8,10 +9,12 @@ from allauth.account.utils import send_email_confirmation
 
 def home(request):
     try:
-        event = Event.objects\
-            .untranslated()\
-            .use_fallbacks()\
-            .order_by('start')[0]
+        qs = Event.objects.untranslated().use_fallbacks()
+        try:
+            today = datetime.now()
+            event = qs.filter(start__gte=now).first()
+        except:
+            event = qs.order_by('start').last()
     except:
         event = None
 
