@@ -1,1 +1,1 @@
-virtualization/rawbot-virtualization/Vagrantfile
+virtualization/drifter/Vagrantfile
