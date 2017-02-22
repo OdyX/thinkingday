@@ -119,6 +119,10 @@ msgstr ""
 msgid "You could post on the map if you were connected!"
 msgstr "Tu pourrais poster sur la carte si tu étais connecté!"
 
+#: apps/event/templates/map.html:35
+msgid "You can post on the map now!"
+msgstr "Tu peux maintenant déposer un message sur la carte!"
+
 #: apps/event/templates/map.html:38
 #, python-format
 msgid "The event %(event_title)s is over!"
