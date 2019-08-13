@@ -1,7 +1,7 @@
 Thinkingday.ch
 ==============
 
-This is the source code for thinkingday.ch
+This was the source code for thinkingday.ch when it was active. It's kept for historical purposes.
 
 Django project template
 =======================
